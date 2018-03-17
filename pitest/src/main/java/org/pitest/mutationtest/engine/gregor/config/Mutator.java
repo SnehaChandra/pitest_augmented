@@ -31,24 +31,8 @@ import org.pitest.functional.prelude.Prelude;
 import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
 import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
-import org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.MathMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.*;
 import org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator.Choice;
-import org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator;
@@ -59,6 +43,12 @@ public final class Mutator {
   private static final Map<String, Iterable<MethodMutatorFactory>> MUTATORS = new LinkedHashMap<>();
 
   static {
+
+    add("AORADD_MUTATOR", AORAddMutator.AORADD_MUTATOR);
+    add("AORDIV_MUTATOR", AORDivMutator.AORDIV_MUTATOR);
+    add("AORMUL_MUTATOR", AORMulMutator.AORMUL_MUTATOR);
+    add("AORREM_MUTATOR", AORRemMutator.AORREM_MUTATOR);
+    add("AORSUB_MUTATOR", AORSubMutator.AORSUB_MUTATOR);
 
     /**
      * Default mutator that inverts the negation of integer and floating point
@@ -201,7 +191,12 @@ public final class Mutator {
    * performance
    */
   public static Collection<MethodMutatorFactory> defaults() {
-    return group(InvertNegsMutator.INVERT_NEGS_MUTATOR,
+    return group(AORAddMutator.AORADD_MUTATOR,
+        AORDivMutator.AORDIV_MUTATOR,
+        AORMulMutator.AORMUL_MUTATOR,
+        AORRemMutator.AORREM_MUTATOR,
+        AORSubMutator.AORSUB_MUTATOR,
+        InvertNegsMutator.INVERT_NEGS_MUTATOR,
         ReturnValsMutator.RETURN_VALS_MUTATOR, MathMutator.MATH_MUTATOR,
         VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
         NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
