@@ -45,6 +45,8 @@ public final class Mutator {
 
   static {
 
+    add("AOD_MUTATOR_FIRST_OPERATOR", AODMutator.AOD_MUTATOR_FIRST_OPERATOR);
+    add("AOD_MUTATOR_SECOND_OPERATOR", new AODMutatorSecondOperand());
     add("AORADD_MUTATOR", AORAddMutator.AORADD_MUTATOR);
     add("AORDIV_MUTATOR", AORDivMutator.AORDIV_MUTATOR);
     add("AORMUL_MUTATOR", AORMulMutator.AORMUL_MUTATOR);
