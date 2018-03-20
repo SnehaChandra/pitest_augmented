@@ -32,7 +32,12 @@ import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
 import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
 import org.pitest.mutationtest.engine.gregor.mutators.*;
-import org.pitest.mutationtest.engine.gregor.mutators.ROR.*;
+import org.pitest.mutationtest.engine.gregor.mutators.AOD.OperandReplacesArithmeticMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOD.SecondOperandReplacesMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.*;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.IntegersComparisonMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.ReferentialComparisonMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.ZeroComparisonMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator.Choice;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator;
@@ -45,18 +50,19 @@ public final class Mutator {
 
   static {
 
-    add("AORADD_MUTATOR", AORAddMutator.AORADD_MUTATOR);
-    add("AORDIV_MUTATOR", AORDivMutator.AORDIV_MUTATOR);
-    add("AORMUL_MUTATOR", AORMulMutator.AORMUL_MUTATOR);
-    add("AORREM_MUTATOR", AORRemMutator.AORREM_MUTATOR);
-    add("AORSUB_MUTATOR", AORSubMutator.AORSUB_MUTATOR);
 
-    add("ROR_MUTATOR_IFEQ", RORMutatorIFEQ.ROR_MUTATOR_IFEQ);
-    add("ROR_MUTATOR_IFGE", RORMutatorIFGE.ROR_MUTATOR_IFGE);
-    add("ROR_MUTATOR_IFGT", RORMutatorIFGT.ROR_MUTATOR_IFGT);
-    add("ROR_MUTATOR_IFLE", RORMutatorIFLE.ROR_MUTATOR_IFLE);
-    add("ROR_MUTATOR_IFLT", RORMutatorIFLT.ROR_MUTATOR_IFLT);
-    add("ROR_MUTATOR_IFNE", RORMutatorIFNE.ROR_MUTATOR_IFNE);
+    add("OPERAND_REPLACES_ARITHMETIC_MUTATOR", OperandReplacesArithmeticMutator.OPERAND_REPLACES_ARITHMETIC_MUTATOR);
+    add("SECOND_OPERAND_REPLACES_OPERATOR", new SecondOperandReplacesMutator());
+
+    add("REPLACE_ARITHMETIC_WITH_ADD_MUTATOR", ReplaceArithmeticWithAddMutator.REPLACE_ARITHMETIC_WITH_ADD_MUTATOR);
+    add("REPLACE_ARITHMETIC_WITH_DIV_MUTATOR", ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR);
+    add("REPLACE_ARITHMETIC_WITH_MUL_MUTATOR", ReplaceArithmeticWithMulMutator.REPLACE_ARITHMETIC_WITH_MUL_MUTATOR);
+    add("REPLACE_ARITHMETIC_WITH_SUB_MUTATOR", ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR);
+    add("REPLACE_ARITHMETIC_WITH_REM_MUTATOR", ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR);
+
+    add("INTEGERS_COMPARISON_MUTATOR", IntegersComparisonMutator.INTEGERS_COMPARISON_MUTATOR);
+    add("REFERENTIAL_COMPARISON_MUTATOR", ReferentialComparisonMutator.REFERENTIAL_COMPARISON_MUTATOR);
+    add("ZERO_COMPARISON_MUTATOR", ZeroComparisonMutator.ZERO_COMPARISON_MUTATOR);
 
     /**
      * Default mutator that inverts the negation of integer and floating point
@@ -199,11 +205,16 @@ public final class Mutator {
    * performance
    */
   public static Collection<MethodMutatorFactory> defaults() {
-    return group(AORAddMutator.AORADD_MUTATOR,
-        AORDivMutator.AORDIV_MUTATOR,
-        AORMulMutator.AORMUL_MUTATOR,
-        AORRemMutator.AORREM_MUTATOR,
-        AORSubMutator.AORSUB_MUTATOR,
+    return group(ReplaceArithmeticWithAddMutator.REPLACE_ARITHMETIC_WITH_ADD_MUTATOR,
+        ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR,
+        ReplaceArithmeticWithMulMutator.REPLACE_ARITHMETIC_WITH_MUL_MUTATOR,
+        ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR,
+        ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR,
+        OperandReplacesArithmeticMutator.OPERAND_REPLACES_ARITHMETIC_MUTATOR,
+        new SecondOperandReplacesMutator(),
+        IntegersComparisonMutator.INTEGERS_COMPARISON_MUTATOR,
+        ReferentialComparisonMutator.REFERENTIAL_COMPARISON_MUTATOR,
+        ZeroComparisonMutator.ZERO_COMPARISON_MUTATOR,
         InvertNegsMutator.INVERT_NEGS_MUTATOR,
         ReturnValsMutator.RETURN_VALS_MUTATOR, MathMutator.MATH_MUTATOR,
         VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,

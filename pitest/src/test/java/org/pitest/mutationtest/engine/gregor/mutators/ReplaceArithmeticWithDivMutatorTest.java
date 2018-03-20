@@ -4,14 +4,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.pitest.mutationtest.engine.Mutant;
 import org.pitest.mutationtest.engine.gregor.MutatorTestBase;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithDivMutator;
 
 import java.util.concurrent.Callable;
 
-public class AORDivMutatorTest extends MutatorTestBase {
+public class ReplaceArithmeticWithDivMutatorTest extends MutatorTestBase {
 
 	@Before
 	public void setupEngineToMutateOnlyMathFunctions() {	
-		createTesteeWith(AORDivMutator.AORDIV_MUTATOR);
+		createTesteeWith(ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR);
 	}
 	private static class HasIAdd implements Callable<String> {
 		private int i;
@@ -45,12 +46,7 @@ public class AORDivMutatorTest extends MutatorTestBase {
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceIntegerMulticationWithDivision() throws Exception {
-		final Mutant mutant = getFirstMutant(HasIMul.class);
-		assertMutantCallableReturns(new HasIMul(2), mutant, "1");
-		assertMutantCallableReturns(new HasIMul(20), mutant, "10");
-	}
+
 	private static class HasISub implements Callable<String> {
 		private int i;
 
@@ -124,12 +120,7 @@ public class AORDivMutatorTest extends MutatorTestBase {
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceLongMulticationWithDivision() throws Exception {
-		final Mutant mutant = getFirstMutant(HasLMul.class);
-		assertMutantCallableReturns(new HasLMul(2), mutant, "1");
-		assertMutantCallableReturns(new HasLMul(20), mutant, "10");
-	}
+
 	private static class HasLSub implements Callable<String> {
 		private long i;
 
@@ -202,12 +193,7 @@ public class AORDivMutatorTest extends MutatorTestBase {
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceFloatMulticationWithDivision() throws Exception {
-		final Mutant mutant = getFirstMutant(HasFMul.class);
-		assertMutantCallableReturns(new HasFMul(2), mutant, "1.0");
-		assertMutantCallableReturns(new HasFMul(20), mutant, "10.0");
-	}
+
 	private static class HasFSub implements Callable<String> {
 		private float i;
 
@@ -260,12 +246,6 @@ public class AORDivMutatorTest extends MutatorTestBase {
 			this.i = i * 2;
 			return "" + this.i;
 		}
-	}
-	@Test
-	public void shouldReplaceDoubleMulticationWithDivision() throws Exception {
-		final Mutant mutant = getFirstMutant(HasDMul.class);
-		assertMutantCallableReturns(new HasDMul(2), mutant, "1.0");
-		assertMutantCallableReturns(new HasDMul(20), mutant, "10.0");
 	}
 
 	private static class HasDAdd implements Callable<String> {

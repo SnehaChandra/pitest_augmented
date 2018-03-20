@@ -67,6 +67,7 @@ class MathMethodVisitor extends AbstractInsnMutator {
         "Replaced integer multiplication with division"));
     MUTATIONS.put(Opcodes.IDIV, new InsnSubstitution(Opcodes.IMUL,
         "Replaced integer division with multiplication"));
+
     MUTATIONS.put(Opcodes.IOR, new InsnSubstitution(Opcodes.IAND,
         "Replaced bitwise OR with AND"));
     MUTATIONS.put(Opcodes.IAND, new InsnSubstitution(Opcodes.IOR,

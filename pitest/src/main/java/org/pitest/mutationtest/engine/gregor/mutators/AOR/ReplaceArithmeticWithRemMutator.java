@@ -1,4 +1,4 @@
-package org.pitest.mutationtest.engine.gregor.mutators;
+package org.pitest.mutationtest.engine.gregor.mutators.AOR;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +12,14 @@ import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
 import org.pitest.mutationtest.engine.gregor.MutationContext;
 import org.pitest.mutationtest.engine.gregor.ZeroOperandMutation;
 
-public enum AORRemMutator implements MethodMutatorFactory {
+public enum ReplaceArithmeticWithRemMutator implements MethodMutatorFactory {
 
-  AORREM_MUTATOR;
+  REPLACE_ARITHMETIC_WITH_REM_MUTATOR;
 
   @Override
   public MethodVisitor create(final MutationContext context,
   final MethodInfo methodInfo, final MethodVisitor methodVisitor) {
-    return new AORRemMethodVisitor(this, methodInfo, context, methodVisitor);
+    return new ReplaceArithmeticWithRemVisitor(this, methodInfo, context, methodVisitor);
   }
 
   @Override
@@ -34,9 +34,9 @@ public enum AORRemMutator implements MethodMutatorFactory {
 
 }
 
-class AORRemMethodVisitor extends AbstractInsnMutator {
+class ReplaceArithmeticWithRemVisitor extends AbstractInsnMutator {
 
-  AORRemMethodVisitor(final MethodMutatorFactory factory,
+  ReplaceArithmeticWithRemVisitor(final MethodMutatorFactory factory,
       final MethodInfo methodInfo, final MutationContext context,
       final MethodVisitor writer) {
     super(factory, methodInfo, context, writer);
@@ -46,40 +46,40 @@ class AORRemMethodVisitor extends AbstractInsnMutator {
 
   static {
     MUTATIONS.put(Opcodes.IADD, new InsnSubstitution(Opcodes.IREM,
-            "Replaced integer addition with modulus"));
+            "AOR: Replaced integer addition with modulus"));
     MUTATIONS.put(Opcodes.ISUB, new InsnSubstitution(Opcodes.IREM,
-            "Replaced integer subtraction with modulus"));
+            "AOR: Replaced integer subtraction with modulus"));
     MUTATIONS.put(Opcodes.IMUL, new InsnSubstitution(Opcodes.IREM,
-            "Replaced integer multiplication with modulus"));
+            "AOR: Replaced integer multiplication with modulus"));
     MUTATIONS.put(Opcodes.IDIV, new InsnSubstitution(Opcodes.IREM,
-            "Replaced integer division with modulus"));
+            "AOR: Replaced integer division with modulus"));
     // longs
     MUTATIONS.put(Opcodes.LADD, new InsnSubstitution(Opcodes.LREM,
-            "Replaced long addition with modulus"));
+            "AOR: Replaced long addition with modulus"));
     MUTATIONS.put(Opcodes.LSUB, new InsnSubstitution(Opcodes.LREM,
-            "Replaced long subtraction with modulus"));
+            "AOR: Replaced long subtraction with modulus"));
     MUTATIONS.put(Opcodes.LMUL, new InsnSubstitution(Opcodes.LREM,
-            "Replaced long multiplication with modulus"));
+            "AOR: Replaced long multiplication with modulus"));
     MUTATIONS.put(Opcodes.LDIV, new InsnSubstitution(Opcodes.LREM,
-            "Replaced long division with modulus"));
+            "AOR: Replaced long division with modulus"));
     //float
     MUTATIONS.put(Opcodes.FADD, new InsnSubstitution(Opcodes.FREM,
-            "Replaced float addition with modulus"));
+            "AOR: Replaced float addition with modulus"));
     MUTATIONS.put(Opcodes.FSUB, new InsnSubstitution(Opcodes.FREM,
-            "Replaced float subtraction with modulus"));
+            "AOR: Replaced float subtraction with modulus"));
     MUTATIONS.put(Opcodes.FMUL, new InsnSubstitution(Opcodes.FREM,
-            "Replaced float multiplication with modulus"));
+            "AOR: Replaced float multiplication with modulus"));
     MUTATIONS.put(Opcodes.FDIV, new InsnSubstitution(Opcodes.FREM,
-            "Replaced float division with modulus"));
+            "AOR: Replaced float division with modulus"));
     //double
     MUTATIONS.put(Opcodes.DADD, new InsnSubstitution(Opcodes.DREM,
-            "Replaced double addition with modulus"));
+            "AOR: Replaced double addition with modulus"));
     MUTATIONS.put(Opcodes.DSUB, new InsnSubstitution(Opcodes.DREM,
-            "Replaced double subtraction with modulus"));
+            "AOR: Replaced double subtraction with modulus"));
     MUTATIONS.put(Opcodes.DMUL, new InsnSubstitution(Opcodes.DREM,
-            "Replaced double multiplication with modulus"));
+            "AOR: Replaced double multiplication with modulus"));
     MUTATIONS.put(Opcodes.DDIV, new InsnSubstitution(Opcodes.DREM,
-            "Replaced double division with modulus"));
+            "AOR: Replaced double division with modulus"));
   }
 
   @Override

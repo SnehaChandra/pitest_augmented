@@ -4,35 +4,31 @@ import org.junit.Before;
 import org.junit.Test;
 import org.pitest.mutationtest.engine.Mutant;
 import org.pitest.mutationtest.engine.gregor.MutatorTestBase;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithSubMutator;
 
 import java.util.concurrent.Callable;
 
 
-public class AORAddMutatorTest extends MutatorTestBase {
+public class ReplaceArithmeticWithSubMutatorTest extends MutatorTestBase {
 
 	@Before
 	public void setupEngineToMutateOnlyMathFunctions() {	
-		createTesteeWith(AORAddMutator.AORADD_MUTATOR);
+		createTesteeWith(ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR);
 	}
-	private static class HasISub implements Callable<String> {
+	private static class HasIAdd implements Callable<String> {
 		private int i;
 
-		HasISub(final int i) {
+		HasIAdd(final int i) {
 			this.i = i;
 		}
 
 		@Override
 		public String call() {
-			this.i--;
+			this.i++;
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceIntegerSubtractionWithAddition() throws Exception {
-		final Mutant mutant = getFirstMutant(HasISub.class);
-		assertMutantCallableReturns(new HasISub(1), mutant, "2");
-		assertMutantCallableReturns(new HasISub(20), mutant, "21");
-	}
+
 	private static class HasIMul implements Callable<String> {
 		private int i;
 
@@ -47,10 +43,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceIntegerMulticationWithAddition() throws Exception {
+	public void shouldReplaceIntegerMulticationWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasIMul.class);
-		assertMutantCallableReturns(new HasIMul(1), mutant, "3");
-		assertMutantCallableReturns(new HasIMul(20), mutant, "22");
+		assertMutantCallableReturns(new HasIMul(2), mutant, "0");
+		assertMutantCallableReturns(new HasIMul(20), mutant, "18");
 	}
 	private static class HasIDiv implements Callable<String> {
 		private int i;
@@ -66,10 +62,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceIntegerDivisionWithAddition() throws Exception {
+	public void shouldReplaceIntegerDivisionWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasIDiv.class);
-		assertMutantCallableReturns(new HasIDiv(1), mutant, "3");
-		assertMutantCallableReturns(new HasIDiv(20), mutant, "22");
+		assertMutantCallableReturns(new HasIDiv(2), mutant, "0");
+		assertMutantCallableReturns(new HasIDiv(20), mutant, "18");
 	}
 	private static class HasIRem implements Callable<String> {
 		private int i;
@@ -85,33 +81,28 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceIntegerModulusWithAddition() throws Exception {
+	public void shouldReplaceIntegerModulusWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasIRem.class);
-		assertMutantCallableReturns(new HasIRem(1), mutant, "3");
-		assertMutantCallableReturns(new HasIRem(20), mutant, "22");
+		assertMutantCallableReturns(new HasIRem(2), mutant, "0");
+		assertMutantCallableReturns(new HasIRem(20), mutant, "18");
 	}
 
 	//long
 
-	private static class HasLSub implements Callable<String> {
+	private static class HasLAdd implements Callable<String> {
 		private long i;
 
-		HasLSub(final long i) {
+		HasLAdd(final long i) {
 			this.i = i;
 		}
 
 		@Override
 		public String call() {
-			this.i--;
+			this.i++;
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceLongSubstrationWithAddition() throws Exception {
-		final Mutant mutant = getFirstMutant(HasLSub.class);
-		assertMutantCallableReturns(new HasLSub(1), mutant, "2");
-		assertMutantCallableReturns(new HasLSub(20), mutant, "21");
-	}
+
 	private static class HasLMul implements Callable<String> {
 		private long i;
 
@@ -126,10 +117,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceLongMulticationWithAddition() throws Exception {
+	public void shouldReplaceLongMulticationWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasLMul.class);
-		assertMutantCallableReturns(new HasLMul(1), mutant, "3");
-		assertMutantCallableReturns(new HasLMul(20), mutant, "22");
+		assertMutantCallableReturns(new HasLMul(2), mutant, "0");
+		assertMutantCallableReturns(new HasLMul(20), mutant, "18");
 	}
 	private static class HasLDiv implements Callable<String> {
 		private long i;
@@ -145,10 +136,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceLongDivisionWithAddition() throws Exception {
+	public void shouldReplaceLongDivisionWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasLDiv.class);
-		assertMutantCallableReturns(new HasLDiv(1), mutant, "3");
-		assertMutantCallableReturns(new HasLDiv(20), mutant, "22");
+		assertMutantCallableReturns(new HasLDiv(2), mutant, "0");
+		assertMutantCallableReturns(new HasLDiv(20), mutant, "18");
 	}
 	private static class HasLRem implements Callable<String> {
 		private long i;
@@ -164,32 +155,27 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceLongModulusWithAddition() throws Exception {
+	public void shouldReplaceLongModulusWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasLRem.class);
-		assertMutantCallableReturns(new HasLRem(1), mutant, "3");
-		assertMutantCallableReturns(new HasLRem(20), mutant, "22");
+		assertMutantCallableReturns(new HasLRem(2), mutant, "0");
+		assertMutantCallableReturns(new HasLRem(20), mutant, "18");
 	}
 	//float
 
-	private static class HasFSub implements Callable<String> {
+	private static class HasFAdd implements Callable<String> {
 		private float i;
 
-		HasFSub(final float i) {
+		HasFAdd(final float i) {
 			this.i = i;
 		}
 
 		@Override
 		public String call() {
-			this.i--;
+			this.i++;
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceFloatSubstrationWithAddition() throws Exception {
-		final Mutant mutant = getFirstMutant(HasFSub.class);
-		assertMutantCallableReturns(new HasFSub(1), mutant, "2.0");
-		assertMutantCallableReturns(new HasFSub(20), mutant, "21.0");
-	}
+
 	private static class HasFMul implements Callable<String> {
 		private float i;
 
@@ -204,10 +190,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceFloatMulticationWithAddition() throws Exception {
+	public void shouldReplaceFloatMulticationWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasFMul.class);
-		assertMutantCallableReturns(new HasFMul(1), mutant, "3.0");
-		assertMutantCallableReturns(new HasFMul(20), mutant, "22.0");
+		assertMutantCallableReturns(new HasFMul(2), mutant, "0.0");
+		assertMutantCallableReturns(new HasFMul(20), mutant, "18.0");
 	}
 	private static class HasFDiv implements Callable<String> {
 		private float i;
@@ -223,10 +209,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceFloatDivisionWithAddition() throws Exception {
+	public void shouldReplaceFloatDivisionWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasFDiv.class);
-		assertMutantCallableReturns(new HasFDiv(1), mutant, "3.0");
-		assertMutantCallableReturns(new HasFDiv(20), mutant, "22.0");
+		assertMutantCallableReturns(new HasFDiv(2), mutant, "0.0");
+		assertMutantCallableReturns(new HasFDiv(20), mutant, "18.0");
 	}
 	private static class HasFRem implements Callable<String> {
 		private float i;
@@ -242,10 +228,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceFloatModulusWithAddition() throws Exception {
+	public void shouldReplaceFloatModulusWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasFRem.class);
-		assertMutantCallableReturns(new HasFRem(1), mutant, "3.0");
-		assertMutantCallableReturns(new HasFRem(20), mutant, "22.0");
+		assertMutantCallableReturns(new HasFRem(4), mutant, "2.0");
+		assertMutantCallableReturns(new HasFRem(20), mutant, "18.0");
 	}
 	//double
 
@@ -263,10 +249,10 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceDoubleMulticationWithAddition() throws Exception {
+	public void shouldReplaceDoubleMulticationWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasDMul.class);
-		assertMutantCallableReturns(new HasDMul(1), mutant, "3.0");
-		assertMutantCallableReturns(new HasDMul(20), mutant, "22.0");
+		assertMutantCallableReturns(new HasDMul(2), mutant, "0.0");
+		assertMutantCallableReturns(new HasDMul(20), mutant, "18.0");
 	}
 
 	private static class HasDDiv implements Callable<String> {
@@ -283,30 +269,25 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceDoubleDivisionWithAddition() throws Exception {
+	public void shouldReplaceDoubleDivisionWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasDDiv.class);
-		assertMutantCallableReturns(new HasDDiv(1), mutant, "3.0");
-		assertMutantCallableReturns(new HasDDiv(20), mutant, "22.0");
+		assertMutantCallableReturns(new HasDDiv(2), mutant, "0.0");
+		assertMutantCallableReturns(new HasDDiv(20), mutant, "18.0");
 	}
-	private static class HasDSub implements Callable<String> {
+	private static class HasDAdd implements Callable<String> {
 		private double i;
 
-		HasDSub(final double i) {
+		HasDAdd(final double i) {
 			this.i = i;
 		}
 
 		@Override
 		public String call() {
-			this.i--;
+			this.i++;
 			return "" + this.i;
 		}
 	}
-	@Test
-	public void shouldReplaceDoubleSubstrationWithAddition() throws Exception {
-		final Mutant mutant = getFirstMutant(HasDSub.class);
-		assertMutantCallableReturns(new HasDSub(1), mutant, "2.0");
-		assertMutantCallableReturns(new HasDSub(20), mutant, "21.0");
-	}
+
 	private static class HasDRem implements Callable<String> {
 		private double i;
 
@@ -321,9 +302,9 @@ public class AORAddMutatorTest extends MutatorTestBase {
 		}
 	}
 	@Test
-	public void shouldReplaceDoubleModulusWithAddition() throws Exception {
+	public void shouldReplaceDoubleModulusWithSubtraction() throws Exception {
 		final Mutant mutant = getFirstMutant(HasDRem.class);
-		assertMutantCallableReturns(new HasDRem(1), mutant, "3.0");
-		assertMutantCallableReturns(new HasDRem(20), mutant, "22.0");
+		assertMutantCallableReturns(new HasDRem(2), mutant, "0.0");
+		assertMutantCallableReturns(new HasDRem(20), mutant, "18.0");
 	}
 }

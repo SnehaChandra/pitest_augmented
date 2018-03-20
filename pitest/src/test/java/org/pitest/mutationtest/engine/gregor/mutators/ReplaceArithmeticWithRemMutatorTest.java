@@ -4,15 +4,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.pitest.mutationtest.engine.Mutant;
 import org.pitest.mutationtest.engine.gregor.MutatorTestBase;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithRemMutator;
 
 import java.util.concurrent.Callable;
 
 
-public class AORRemMutatorTest extends MutatorTestBase {
+public class ReplaceArithmeticWithRemMutatorTest extends MutatorTestBase {
 
 	@Before
 	public void setupEngineToMutateOnlyMathFunctions() {	
-		createTesteeWith(AORRemMutator.AORREM_MUTATOR);
+		createTesteeWith(ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR);
 	}
 	private static class HasIAdd implements Callable<String> {
 		private int i;
