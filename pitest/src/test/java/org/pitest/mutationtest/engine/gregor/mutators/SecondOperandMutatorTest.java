@@ -4,16 +4,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.pitest.mutationtest.engine.Mutant;
 import org.pitest.mutationtest.engine.gregor.MutatorTestBase;
-import org.pitest.mutationtest.engine.gregor.mutators.AOD.SecondOperandReplacesMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOD.SecondOperandMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.MutantStarter;
 
 import java.util.concurrent.Callable;
 
-public class SecondOperandReplacesMutatorTest extends MutatorTestBase {
+public class SecondOperandMutatorTest extends MutatorTestBase {
 
 	@Before
 	public void setupEngineToMutateOnlyNegs() {
-		createTesteeWith(new SecondOperandReplacesMutator());
+		createTesteeWith(new SecondOperandMutator());
 	}
 
 	public static class HasIADD implements Callable<Integer> {

@@ -40,40 +40,33 @@ class ZeroComparisonVisitor extends AbstractJumpMutator {
   }
 
   private static final Map<Integer, Substitution> MUTATIONS = new HashMap<Integer, Substitution>();
-  private static final String DESCRIPTION = "ROR: changed relational operators that compare an integer with zero";
 
   static {
-    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFEQ, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFEQ, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFEQ, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFEQ, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFEQ, DESCRIPTION));
+    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFEQ, "ROR: changed less than zero comparison to equals operator"));
+    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFEQ, "ROR: changed less than or equals zero comparison to equals operator"));
+    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFEQ, "ROR: changed greater than zero comparison to equals operator"));
+    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFEQ, "ROR: changed greater than or equals zero comparison to equals operator"));
 
-    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFGE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFGE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFGE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFGE, DESCRIPTION));
+    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFGE, "ROR: changed equals zero comparison to greater than or equals operator"));
+    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFGE, "ROR: changed greater than zero comparison to greater than or equals operator"));
+    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFGE, "ROR: changed not equals zero comparison to greater than or equals operator"));
 
-    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFGT, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFGT, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFGT, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFGT, DESCRIPTION));
+    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFGT, "ROR: changed equals zero comparison to greater than operator"));
+    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFGT, "ROR: changed greater than zero comparison to greater than operator"));
+    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFGT, "ROR: changed not equals zero comparison to greater than operator"));
 
-    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFLE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFLE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFLE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFLE, DESCRIPTION));
+    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFLE, "ROR: changed equals zero comparison to less than or equals operator"));
+    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFLE, "ROR: changed less than zero comparison to less than or equals operator"));
+    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFLE, "ROR: changed not equals zero comparison to less than or equals operator"));
 
-    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFLT, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFLT, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFLT, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFLT, DESCRIPTION));
+    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFLT, "ROR: changed equals zero comparison to less than operator"));
+    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFLT, "ROR: changed less than or equals zero comparison to less than operator"));
+    MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFLT, "ROR: changed not equals zero comparison to less than operator"));
 
-    MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFNE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFNE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFNE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFNE, DESCRIPTION));
-    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFNE, DESCRIPTION));
+    MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFNE, "ROR: changed less than zero comparison to not equals operator"));
+    MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFNE, "ROR: changed less than or equals zero comparison to not equals operator"));
+    MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFNE, "ROR: changed greater than zero comparison to not equals operator"));
+    MUTATIONS.put(Opcodes.IFLT, new Substitution(Opcodes.IFNE, "ROR: changed greater than or equals zero comparison to not equals operator"));
 
   }
 

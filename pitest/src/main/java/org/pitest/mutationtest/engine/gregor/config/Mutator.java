@@ -32,8 +32,8 @@ import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
 import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
 import org.pitest.mutationtest.engine.gregor.mutators.*;
-import org.pitest.mutationtest.engine.gregor.mutators.AOD.OperandReplacesArithmeticMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.AOD.SecondOperandReplacesMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOD.FirstOperandMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOD.SecondOperandMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.AOR.*;
 import org.pitest.mutationtest.engine.gregor.mutators.ROR.IntegersComparisonMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.ROR.ReferentialComparisonMutator;
@@ -51,8 +51,9 @@ public final class Mutator {
   static {
 
 
-    add("OPERAND_REPLACES_ARITHMETIC_MUTATOR", OperandReplacesArithmeticMutator.OPERAND_REPLACES_ARITHMETIC_MUTATOR);
-    add("SECOND_OPERAND_REPLACES_OPERATOR", new SecondOperandReplacesMutator());
+    add("SECOND_OPERAND_REPLACES_OPERATOR", new SecondOperandMutator());
+
+    add("FIRST_OPERAND_VISITOR", new FirstOperandMutator());
 
     add("REPLACE_ARITHMETIC_WITH_ADD_MUTATOR", ReplaceArithmeticWithAddMutator.REPLACE_ARITHMETIC_WITH_ADD_MUTATOR);
     add("REPLACE_ARITHMETIC_WITH_DIV_MUTATOR", ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR);
@@ -210,8 +211,8 @@ public final class Mutator {
         ReplaceArithmeticWithMulMutator.REPLACE_ARITHMETIC_WITH_MUL_MUTATOR,
         ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR,
         ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR,
-        OperandReplacesArithmeticMutator.OPERAND_REPLACES_ARITHMETIC_MUTATOR,
-        new SecondOperandReplacesMutator(),
+        new SecondOperandMutator(),
+        new FirstOperandMutator(),
         IntegersComparisonMutator.INTEGERS_COMPARISON_MUTATOR,
         ReferentialComparisonMutator.REFERENTIAL_COMPARISON_MUTATOR,
         ZeroComparisonMutator.ZERO_COMPARISON_MUTATOR,
