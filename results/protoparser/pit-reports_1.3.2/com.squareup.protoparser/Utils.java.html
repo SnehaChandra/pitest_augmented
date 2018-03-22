@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Utils.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.squareup.protoparser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.annotation.Retention;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static java.lang.annotation.RetentionPolicy.SOURCE;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static java.util.Collections.unmodifiableList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>final class Utils {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void appendDocumentation(StringBuilder builder, String documentation) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_12'/>
+12
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_12'>1</a>
+<span>
+
+1. appendDocumentation : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (documentation.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_13'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      return;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_15'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (String line : documentation.split(&#34;\n&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_16'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      builder.append(&#34;// &#34;).append(line).append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void appendIndented(StringBuilder builder, String value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (String line : value.split(&#34;\n&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      builder.append(&#34;  &#34;).append(line).append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static &#60;T&#62; List&#60;T&#62; immutableCopyOf(List&#60;T&#62; list) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_27'>1</a>
+<span>
+
+1. immutableCopyOf : mutated return of Object value for com/squareup/protoparser/Utils::immutableCopyOf to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return unmodifiableList(new ArrayList&#60;&#62;(list));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static &#60;T&#62; T checkNotNull(T value, String name) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_31'>1</a>
+<span>
+
+1. checkNotNull : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (value == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      throw new NullPointerException(name + &#34; == null&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_34'/>
+34
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_34'>1</a>
+<span>
+
+1. checkNotNull : mutated return of Object value for com/squareup/protoparser/Utils::checkNotNull to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void checkArgument(boolean condition, String message, Object... messageArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_38'>1</a>
+<span>
+
+1. checkArgument : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (!condition) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_39'/>
+39
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_39'>2</a>
+<span>
+
+1. checkArgument : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. checkArgument : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (messageArgs.length &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_40'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        message = String.format(message, messageArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_42'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      throw new IllegalArgumentException(message);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_44'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Retention(SOURCE)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @interface Nullable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_50'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  private Utils() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_51'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    throw new AssertionError(&#34;No instances.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5f107882_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f107882_12'>12</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_12'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>appendDocumentation<br/><b>Killed by : </b>com.squareup.protoparser.UtilsTest.documentationTest(com.squareup.protoparser.UtilsTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f107882_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>immutableCopyOf<br/><b>Killed by : </b>com.squareup.protoparser.EnumElementTest.fieldWithDocumentationToSchema(com.squareup.protoparser.EnumElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/Utils::immutableCopyOf to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f107882_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkNotNull<br/><b>Killed by : </b>com.squareup.protoparser.DataTypeTest.namedToString(com.squareup.protoparser.DataTypeTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f107882_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkNotNull<br/><b>Killed by : </b>com.squareup.protoparser.DataTypeTest.namedToString(com.squareup.protoparser.DataTypeTest)</span></span> mutated return of Object value for com/squareup/protoparser/Utils::checkNotNull to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f107882_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkArgument<br/><b>Killed by : </b>com.squareup.protoparser.ExtensionsElementTest.maxRangeToSchema(com.squareup.protoparser.ExtensionsElementTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5f107882_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5f107882_39'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkArgument<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>checkArgument<br/><b>Killed by : </b>com.squareup.protoparser.ExtensionsElementTest.invalidTagRangeThrows(com.squareup.protoparser.ExtensionsElementTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.squareup.protoparser.ServiceElementTest.emptyToSchema(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseEnum(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.nullBuilderValuesThrow(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseEnumWithOptions(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.UtilsTest.documentationTest(com.squareup.protoparser.UtilsTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingMultilineComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingCommentNotAssignedToFollowingField(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extendInMessage(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.packageDeclaration(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.EnumElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.fieldWithDocumentationToSchema(com.squareup.protoparser.EnumElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionParentheses(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ExtensionsElementTest.withDocumentationToSchema(com.squareup.protoparser.ExtensionsElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionsWithNestedMapsAndTrailingCommas(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ServiceElementTest.rpcWithOptionsToSchema(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.FieldElementTest.typeRequired(com.squareup.protoparser.FieldElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.field(com.squareup.protoparser.FieldElementTest) (4 ms)</li><li>com.squareup.protoparser.ServiceElementTest.addMultipleOptions(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.findInList(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.duplicateValueTagThrows(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.deprecatedSupportStringAndBoolean(com.squareup.protoparser.FieldElementTest) (2 ms)</li><li>com.squareup.protoparser.MessageElementTest.nameSetsQualifiedName(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.invalidHexStringEscape(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ExtendElementTest.nullBuilderValuesThrow(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.nameRequired(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ExtensionsElementTest.singleValueToSchema(com.squareup.protoparser.ExtensionsElementTest) (0 ms)</li><li>com.squareup.protoparser.ServiceElementTest.nullBuilderValuesThrow(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.ExtendElementTest.duplicateTagValueThrows(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.rpcToSchema(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.defaultFieldWithParen(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.EnumElementTest.nullBuilderValuesThrow(com.squareup.protoparser.EnumElementTest) (0 ms)</li><li>com.squareup.protoparser.ServiceElementTest.addMultipleRpcs(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.fieldWithOptionsToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.addMultipleOptions(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.packedFalse(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionNumericalBounds(com.squareup.protoparser.ProtoParserTest) (3 ms)</li><li>com.squareup.protoparser.ExtendElementTest.nameSetsQualifiedName(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.typeParsing(com.squareup.protoparser.ProtoParserTest) (3 ms)</li><li>com.squareup.protoparser.ProtoParserTest.structuredOption(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ExtensionsElementTest.invalidTagRangeThrows(com.squareup.protoparser.ExtensionsElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multipleSingleLineComments(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleFields(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.ServiceElementTest.rpcWithDocumentationToSchema(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.EnumElementTest) (0 ms)</li><li>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.addMultipleConstants(com.squareup.protoparser.EnumElementTest) (9 ms)</li><li>com.squareup.protoparser.ProtoParserTest.nestingInMessage(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoFileTest.syntaxToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.EnumConstantElementTest.nullBuilderValuesThrow(com.squareup.protoparser.EnumConstantElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithImportsToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.nameRequired(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.RpcElementTest.nullBuilderValuesThrow(com.squareup.protoparser.RpcElementTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.service(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.defaultValue(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleExtends(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingMultilineCommentMustBeLastOnLineThrows(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.fqcnExtendInMessageWithPackage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ExtendElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.addMultipleOptions(com.squareup.protoparser.FieldElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumConstantElementTest.nameRequired(com.squareup.protoparser.EnumConstantElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.nullBuilderValuesThrow(com.squareup.protoparser.FieldElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.messageFieldLeadingAndTrailingCommentAreCombined(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleServices(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.emptyToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.syntaxInWrongContextThrows(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.serviceTypesMustBeNamed(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extensionWithNestedMessage(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleOneOfs(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.MessageElementTest.deprecatedFalse(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extend(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extendInMessageWithPackage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.singleLineComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleOptions(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.tagRequired(com.squareup.protoparser.FieldElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.fieldToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultiplePublicDependencies(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.defaultFieldWithStringEscapes(com.squareup.protoparser.ProtoParserTest) (8 ms)</li><li>com.squareup.protoparser.OneOfElementTest.nameRequired(com.squareup.protoparser.OneOfElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingCommentNotCombinedWhenEmpty(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithServicesToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.syntaxNotRequired(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleDependencies(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ExtensionsElementTest.maxRangeToSchema(com.squareup.protoparser.ExtensionsElementTest) (0 ms)</li><li>com.squareup.protoparser.ExtendElementTest.addMultipleFields(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.RpcElementTest.nameRequired(com.squareup.protoparser.RpcElementTest) (1 ms)</li><li>com.squareup.protoparser.RpcElementTest.requestTypeRequired(com.squareup.protoparser.RpcElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.multipleEverythingToSchema(com.squareup.protoparser.ProtoFileTest) (3 ms)</li><li>com.squareup.protoparser.MessageElementTest.deprecatedTrue(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.DataTypeTest.namedToString(com.squareup.protoparser.DataTypeTest) (0 ms)</li><li>com.squareup.protoparser.FieldElementTest.packedSupportStringAndBoolean(com.squareup.protoparser.FieldElementTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.singleLineJavadocComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.packedMissing(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.imports(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleTypes(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.nameSetsQualifiedName(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.ExtendElementTest.emptyToSchema(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multipleSingleLineCommentsWithLeadingWhitespace(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.DataTypeTest.mapToString(com.squareup.protoparser.DataTypeTest) (50 ms)</li><li>com.squareup.protoparser.MessageElementTest.fieldWithOptionsToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.multipleEverythingToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.nameRequired(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleOptions(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest) (6 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateEnumValueTagInScopeThrows(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.invalidSyntaxValueThrows(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.simpleToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithPublicImportsToSchema(com.squareup.protoparser.ProtoFileTest) (7 ms)</li><li>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ExtensionsElementTest.rangeToSchema(com.squareup.protoparser.ExtensionsElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithOptionsToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.messageFieldTrailingComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.publicImports(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.EnumElementTest.emptyToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.findInListDuplicate(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.syntaxSpecified(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.fqcnExtendInMessage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.emptyWithPackageToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multilineJavadocComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.fieldToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.singleWithDocumentationToSchema(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.RpcElementTest.responseTypeRequired(com.squareup.protoparser.RpcElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumConstantElementTest.tagRequired(com.squareup.protoparser.EnumConstantElementTest) (0 ms)</li><li>com.squareup.protoparser.OneOfElementTest.nullBuilderValuesThrow(com.squareup.protoparser.OneOfElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.enumValueLeadingAndTrailingCommentsAreCombined(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithExtendsToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateTagValueOneOfThrows(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.nameRequired(com.squareup.protoparser.FieldElementTest) (1 ms)</li><li>com.squareup.protoparser.ExtendElementTest.nameRequired(com.squareup.protoparser.ExtendElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.enumValueTrailingComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.noWhitespace(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ExtendElementTest.simpleToSchema(com.squareup.protoparser.ExtendElementTest) (0 ms)</li><li>com.squareup.protoparser.FieldElementTest.labelRequired(com.squareup.protoparser.FieldElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.fieldWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateTagValueThrows(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.singleWithOptionsToSchema(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseMessageAndOneOf(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.nullNameThrows(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multilineJavadocCommentWithoutLeadingAsterisks(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.hexTag(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.duplicateValueTagWithAllowAlias(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.nameSetsQualifiedName(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithBothImportsToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.ServiceElementTest.singleToSchema(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.oneOfFieldToSchema(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleExtensions(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.MessageElementTest.deprecatedMissing(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.packedTrue(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.defaultMissing(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.nullValueThrows(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.nullBuilderValuesThrow(com.squareup.protoparser.MessageElementTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingUnclosedMultilineCommentThrows(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.invalidTrailingComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multilineJavadocCommentWithLeadingWhitespace(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.multipleToSchema(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseMessageAndFields(com.squareup.protoparser.ProtoParserTest) (2 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.3.2
+
+</body>
+</html>

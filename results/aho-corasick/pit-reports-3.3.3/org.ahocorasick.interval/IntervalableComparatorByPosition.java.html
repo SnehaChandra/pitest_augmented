@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>IntervalableComparatorByPosition.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.ahocorasick.interval;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Comparator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_5'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class IntervalableComparatorByPosition implements Comparator&#60;Intervalable&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int compare(final Intervalable intervalable, final Intervalable intervalable2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_9'/>
+9
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_9'>6</a>
+<span>
+1. compare : AOD: Replaced integer substraction with first operand &rarr; KILLED<br/>
+2. compare : AOD: Replaced integer substraction with second operand &rarr; KILLED<br/>
+3. compare : AOR: Replaced integer subtraction with division &rarr; KILLED<br/>
+4. compare : AOR: Replaced integer subtraction with multiplication &rarr; KILLED<br/>
+5. compare : Replaced integer subtraction with addition &rarr; KILLED<br/>
+6. compare : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return intervalable.getStart() - intervalable2.getStart();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69e2fe3b_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69e2fe3b_9'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compare<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest)</span></span> AOD: Replaced integer substraction with first operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>compare<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest)</span></span> AOD: Replaced integer substraction with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>compare<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest)</span></span> AOR: Replaced integer subtraction with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>compare<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest)</span></span> AOR: Replaced integer subtraction with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>compare<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>compare<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INTEGERS_COMPARISON_MUTATOR</li>
+<li class='mutator'>ZERO_COMPARISON_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>REFERENTIAL_COMPARISON_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.ahocorasick.trie.TrieTest.nonOverlappingFirstMatch(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.containsMatch(org.ahocorasick.trie.TrieTest) (5 ms)</li><li>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.startOfChurchillSpeech(org.ahocorasick.trie.TrieTest) (7 ms)</li><li>org.ahocorasick.interval.IntervalTreeTest.removeOverlaps(org.ahocorasick.interval.IntervalTreeTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.nonOverlapping(org.ahocorasick.trie.TrieTest) (7 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

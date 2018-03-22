@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Emit.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.ahocorasick.trie;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.ahocorasick.interval.Interval;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.ahocorasick.interval.Intervalable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Emit extends Interval implements Intervalable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final String keyword;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Emit(final int start, final int end, final String keyword) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_11'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(start, end);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_12'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.keyword = keyword;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_13'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getKeyword() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_16'>1</a>
+<span>
+1. getKeyword : mutated return of Object value for org/ahocorasick/trie/Emit::getKeyword to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.keyword;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_21'/>
+21
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_21'>1</a>
+<span>
+1. toString : mutated return of Object value for org/ahocorasick/trie/Emit::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return super.toString() + &#34;=&#34; + this.keyword;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1657b017_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1657b017_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKeyword<br/><b>Killed by : </b>org.ahocorasick.trie.TrieTest.variousKeywordsFirstMatch(org.ahocorasick.trie.TrieTest)</span></span> mutated return of Object value for org/ahocorasick/trie/Emit::getKeyword to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1657b017_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1657b017_21'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/ahocorasick/trie/Emit::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INTEGERS_COMPARISON_MUTATOR</li>
+<li class='mutator'>ZERO_COMPARISON_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>REFERENTIAL_COMPARISON_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.ahocorasick.trie.TrieTest.partialMatch(org.ahocorasick.trie.TrieTest) (4 ms)</li><li>org.ahocorasick.trie.TrieTest.testIgnoreCase(org.ahocorasick.trie.TrieTest) (9 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestStopOnHitSkipOne(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.longAndShortOverlappingMatch(org.ahocorasick.trie.TrieTest) (8 ms)</li><li>org.ahocorasick.trie.TrieTest.testPartialMatchWhiteSpaces(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.nonOverlapping(org.ahocorasick.trie.TrieTest) (7 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.recipes(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.nonOverlappingFirstMatch(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.variousKeywordsFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.partialMatchFirstMatch(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.testUnicode2(org.ahocorasick.trie.TrieTest) (4 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestByCallback(org.ahocorasick.trie.TrieTest) (22 ms)</li><li>org.ahocorasick.trie.TrieTest.textIsLongerThanKeyword(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.keywordAndTextAreTheSameFirstMatch(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTest(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.recipesFirstMatch(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestWithCapitalKeywords(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.testUnicode1(org.ahocorasick.trie.TrieTest) (5 ms)</li><li>org.ahocorasick.trie.TrieTest.misleadingTest(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.testStringIndexOutOfBoundsException(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.keywordAndTextAreTheSame(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.textIsLongerThanKeywordFirstMatch(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestAndStopOnHit(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.variousKeywordsOneMatch(org.ahocorasick.trie.TrieTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.misleadingTestFirstMatch(org.ahocorasick.trie.TrieTest) (7 ms)</li><li>org.ahocorasick.trie.TrieTest.testIgnoreCaseFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

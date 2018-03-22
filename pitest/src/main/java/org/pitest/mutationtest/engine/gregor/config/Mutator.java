@@ -51,16 +51,24 @@ public final class Mutator {
   static {
 
 
+    /**
+     * Mutators that replace arithmetic expression with operands
+     */
+    add("FIRST_OPERAND_VISITOR", new FirstOperandMutator());
     add("SECOND_OPERAND_REPLACES_OPERATOR", new SecondOperandMutator());
 
-    add("FIRST_OPERAND_VISITOR", new FirstOperandMutator());
-
+    /**
+     * Mutators that replace each of the arithmetic operators with all of the others
+     */
     add("REPLACE_ARITHMETIC_WITH_ADD_MUTATOR", ReplaceArithmeticWithAddMutator.REPLACE_ARITHMETIC_WITH_ADD_MUTATOR);
     add("REPLACE_ARITHMETIC_WITH_DIV_MUTATOR", ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR);
     add("REPLACE_ARITHMETIC_WITH_MUL_MUTATOR", ReplaceArithmeticWithMulMutator.REPLACE_ARITHMETIC_WITH_MUL_MUTATOR);
     add("REPLACE_ARITHMETIC_WITH_SUB_MUTATOR", ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR);
     add("REPLACE_ARITHMETIC_WITH_REM_MUTATOR", ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR);
 
+    /**
+     * Mutators that replace the relational operators with each other
+     */
     add("INTEGERS_COMPARISON_MUTATOR", IntegersComparisonMutator.INTEGERS_COMPARISON_MUTATOR);
     add("REFERENTIAL_COMPARISON_MUTATOR", ReferentialComparisonMutator.REFERENTIAL_COMPARISON_MUTATOR);
     add("ZERO_COMPARISON_MUTATOR", ZeroComparisonMutator.ZERO_COMPARISON_MUTATOR);
