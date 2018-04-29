@@ -1,0 +1,3693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MessageElement.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>// Copyright 2013 Square, Inc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.squareup.protoparser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.google.auto.value.AutoValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collection;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedHashSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.squareup.protoparser.Utils.appendDocumentation;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.squareup.protoparser.Utils.appendIndented;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.squareup.protoparser.Utils.checkNotNull;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.squareup.protoparser.Utils.immutableCopyOf;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@AutoValue</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class MessageElement implements TypeElement {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void validateFieldTagUniqueness(String qualifiedName, List&#60;FieldElement&#62; fields,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      List&#60;OneOfElement&#62; oneOfs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    List&#60;FieldElement&#62; allFields = new ArrayList&#60;&#62;(fields);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (OneOfElement oneOf : oneOfs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      allFields.addAll(oneOf.fields());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_23'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_25'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Set&#60;Integer&#62; tags = new LinkedHashSet&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_26'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (FieldElement field : allFields) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      int tag = field.tag();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_28'/>
+28
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_28'>6</a>
+<span>
+1. validateFieldTagUniqueness : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. validateFieldTagUniqueness : negated conditional &rarr; KILLED<br/>
+3. validateFieldTagUniqueness : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+4. validateFieldTagUniqueness : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. validateFieldTagUniqueness : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. validateFieldTagUniqueness : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (!tags.add(tag)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_29'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        throw new IllegalStateException(&#34;Duplicate tag &#34; + tag + &#34; in &#34; + qualifiedName);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void validateFieldLabel(String qualifiedName, List&#60;FieldElement&#62; fields) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_35'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (FieldElement field : fields) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_36'>2</a>
+<span>
+1. validateFieldLabel : negated conditional &rarr; KILLED<br/>
+2. validateFieldLabel : changed conditional of IF_ACMP &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (field.label() == FieldElement.Label.ONE_OF) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_37'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        throw new IllegalStateException(&#34;Field &#39;&#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_38'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            + field.name()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            + &#34;&#39; in &#34;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            + qualifiedName</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            + &#34; improperly declares itself a member of a &#39;oneof&#39; group but is not.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_43'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_44'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static Builder builder() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_47'/>
+47
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_47'>1</a>
+<span>
+1. builder : mutated return of Object value for com/squareup/protoparser/MessageElement::builder to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return new Builder();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_50'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  MessageElement() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_51'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public abstract String name();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public abstract String qualifiedName();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public abstract String documentation();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract List&#60;FieldElement&#62; fields();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract List&#60;OneOfElement&#62; oneOfs();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public abstract List&#60;TypeElement&#62; nestedElements();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract List&#60;ExtensionsElement&#62; extensions();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public abstract List&#60;OptionElement&#62; options();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override public final String toSchema() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_63'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    StringBuilder builder = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_64'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/Utils::appendDocumentation &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    appendDocumentation(builder, documentation());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_65'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    builder.append(&#34;message &#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_66'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        .append(name())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        .append(&#34; {&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_68'>6</a>
+<span>
+1. toSchema : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. toSchema : negated conditional &rarr; KILLED<br/>
+3. toSchema : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+4. toSchema : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. toSchema : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. toSchema : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (!options().isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_69'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      builder.append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_70'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (OptionElement option : options()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_71'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appendIndented(builder, option.toSchemaDeclaration());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_72'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_74'/>
+74
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_74'>6</a>
+<span>
+1. toSchema : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. toSchema : negated conditional &rarr; KILLED<br/>
+3. toSchema : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+4. toSchema : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. toSchema : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. toSchema : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (!fields().isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_75'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      builder.append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_76'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (FieldElement field : fields()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_77'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appendIndented(builder, field.toSchema());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_78'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_80'/>
+80
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_80'>6</a>
+<span>
+1. toSchema : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. toSchema : negated conditional &rarr; KILLED<br/>
+3. toSchema : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+4. toSchema : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. toSchema : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. toSchema : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (!oneOfs().isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_81'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      builder.append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_82'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (OneOfElement oneOf : oneOfs()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_83'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appendIndented(builder, oneOf.toSchema());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_84'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_86'>6</a>
+<span>
+1. toSchema : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. toSchema : negated conditional &rarr; KILLED<br/>
+3. toSchema : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+4. toSchema : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. toSchema : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. toSchema : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (!extensions().isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_87'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      builder.append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_88'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (ExtensionsElement extension : extensions()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_89'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appendIndented(builder, extension.toSchema());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_90'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_92'/>
+92
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_92'>6</a>
+<span>
+1. toSchema : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. toSchema : negated conditional &rarr; KILLED<br/>
+3. toSchema : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+4. toSchema : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. toSchema : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. toSchema : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (!nestedElements().isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_93'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      builder.append(&#39;\n&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_94'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (TypeElement type : nestedElements()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_95'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appendIndented(builder, type.toSchema());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_96'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_98'>1</a>
+<span>
+1. toSchema : mutated return of Object value for com/squareup/protoparser/MessageElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return builder.append(&#34;}\n&#34;).toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_101'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  public static final class Builder {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String name;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String qualifiedName;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_104'/>
+104
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_104'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fielddocumentation mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private String documentation = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_105'/>
+105
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_105'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private final List&#60;FieldElement&#62; fields = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_106'/>
+106
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_106'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private final List&#60;OneOfElement&#62; oneOfs = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_107'/>
+107
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_107'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private final List&#60;TypeElement&#62; nestedElements = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_108'/>
+108
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_108'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldextensions mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private final List&#60;ExtensionsElement&#62; extensions = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_109'/>
+109
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_109'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoptions mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private final List&#60;OptionElement&#62; options = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_111'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private Builder() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_112'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_114'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder name(String name) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_115'/>
+115
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_115'>1</a>
+<span>
+1. name : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldname mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      this.name = checkNotNull(name, &#34;name&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_116'/>
+116
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_116'>2</a>
+<span>
+1. name : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+2. name : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (qualifiedName == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_117'/>
+117
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_117'>1</a>
+<span>
+1. name : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        qualifiedName = name;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_119'/>
+119
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_119'>1</a>
+<span>
+1. name : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::name to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_120'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_121'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder qualifiedName(String qualifiedName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_123'/>
+123
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_123'>1</a>
+<span>
+1. qualifiedName : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      this.qualifiedName = checkNotNull(qualifiedName, &#34;qualifiedName&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_124'>1</a>
+<span>
+1. qualifiedName : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::qualifiedName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder documentation(String documentation) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_128'/>
+128
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_128'>1</a>
+<span>
+1. documentation : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fielddocumentation mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      this.documentation = checkNotNull(documentation, &#34;documentation&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_129'/>
+129
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_129'>1</a>
+<span>
+1. documentation : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::documentation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_130'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_132'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addField(FieldElement field) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_133'/>
+133
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_133'>1</a>
+<span>
+1. addField : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      fields.add(checkNotNull(field, &#34;field&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_134'/>
+134
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_134'>1</a>
+<span>
+1. addField : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addField to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_136'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addFields(Collection&#60;FieldElement&#62; fields) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_138'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (FieldElement field : checkNotNull(fields, &#34;fields&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_139'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        addField(field);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_140'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_141'>1</a>
+<span>
+1. addFields : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addFields to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_142'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_143'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_144'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addOneOf(OneOfElement oneOf) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_145'/>
+145
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_145'>1</a>
+<span>
+1. addOneOf : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      oneOfs.add(checkNotNull(oneOf, &#34;oneOf&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_146'/>
+146
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_146'>1</a>
+<span>
+1. addOneOf : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOneOf to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_147'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_148'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_149'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addOneOfs(Collection&#60;OneOfElement&#62; oneOfs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_150'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (OneOfElement oneOf : checkNotNull(oneOfs, &#34;oneOfs&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_151'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        addOneOf(oneOf);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_152'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_153'>1</a>
+<span>
+1. addOneOfs : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOneOfs to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_154'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_155'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_156'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addType(TypeElement type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_157'/>
+157
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_157'>1</a>
+<span>
+1. addType : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      nestedElements.add(checkNotNull(type, &#34;type&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_158'/>
+158
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_158'>1</a>
+<span>
+1. addType : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_159'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_160'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_161'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addTypes(Collection&#60;TypeElement&#62; types) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_162'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (TypeElement type : checkNotNull(types, &#34;types&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_163'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        addType(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_164'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_165'>1</a>
+<span>
+1. addTypes : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addTypes to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_166'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_167'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_168'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addExtensions(ExtensionsElement extensions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_169'/>
+169
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_169'>1</a>
+<span>
+1. addExtensions : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldextensions mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      this.extensions.add(checkNotNull(extensions, &#34;extensions&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_170'/>
+170
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_170'>1</a>
+<span>
+1. addExtensions : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addExtensions to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_171'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_172'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_173'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addExtensions(Collection&#60;ExtensionsElement&#62; extensions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_174'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (ExtensionsElement extension : checkNotNull(extensions, &#34;extensions&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_175'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        addExtensions(extension);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_176'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_177'/>
+177
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_177'>1</a>
+<span>
+1. addExtensions : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addExtensions to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_178'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_179'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_180'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addOption(OptionElement option) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_181'/>
+181
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_181'>1</a>
+<span>
+1. addOption : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoptions mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      options.add(checkNotNull(option, &#34;option&#34;));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_182'/>
+182
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_182'>1</a>
+<span>
+1. addOption : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_183'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_184'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Builder addOptions(Collection&#60;OptionElement&#62; options) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_186'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      for (OptionElement option : checkNotNull(options, &#34;options&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_187'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        addOption(option);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_188'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_189'/>
+189
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_189'>1</a>
+<span>
+1. addOptions : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOptions to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return this;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_190'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_191'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_192'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public MessageElement build() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_193'/>
+193
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_193'>1</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldname mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      checkNotNull(name, &#34;name&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_194'/>
+194
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_194'>1</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      checkNotNull(qualifiedName, &#34;qualifiedName&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_195'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_196'/>
+196
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_196'>4</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+2. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED<br/>
+3. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED<br/>
+4. build : removed call to com/squareup/protoparser/MessageElement::validateFieldTagUniqueness &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      validateFieldTagUniqueness(qualifiedName, fields, oneOfs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_197'/>
+197
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_197'>3</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+2. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED<br/>
+3. build : removed call to com/squareup/protoparser/MessageElement::validateFieldLabel &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      validateFieldLabel(qualifiedName, fields);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_198'/>
+198
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_198'>3</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+2. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED<br/>
+3. build : removed call to com/squareup/protoparser/EnumElement::validateValueUniquenessInScope &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      EnumElement.validateValueUniquenessInScope(qualifiedName, nestedElements);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_199'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_200'/>
+200
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_200'>5</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldname mutated with null check on object &rarr; SURVIVED<br/>
+2. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED<br/>
+3. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fielddocumentation mutated with null check on object &rarr; SURVIVED<br/>
+4. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED<br/>
+5. build : mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::build to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      return new AutoValue_MessageElement(name, qualifiedName, documentation,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_201'/>
+201
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_201'>3</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED<br/>
+2. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED<br/>
+3. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldextensions mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>          immutableCopyOf(fields), immutableCopyOf(oneOfs), immutableCopyOf(nestedElements),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_202'/>
+202
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_202'>1</a>
+<span>
+1. build : M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoptions mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>          immutableCopyOf(extensions), immutableCopyOf(options));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_203'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_204'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4243b415_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_205'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>validateFieldTagUniqueness<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>validateFieldTagUniqueness<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>validateFieldTagUniqueness<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.duplicateTagValueOneOfThrows(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>validateFieldTagUniqueness<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>validateFieldTagUniqueness<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>validateFieldTagUniqueness<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>validateFieldLabel<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>validateFieldLabel<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional of IF_ACMP &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_47'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>builder<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.nameRequired(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement::builder to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendDocumentation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_68'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_92'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 9 with 10 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 10 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -10 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> Bug fixed: Negate variable, Substituted 10 with -10 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_104'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fielddocumentation mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_105'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_106'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_107'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_108'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldextensions mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_109'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoptions mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_115'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>name<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldname mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>name<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.nameSetsQualifiedName(com.squareup.protoparser.MessageElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>name<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_117'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>name<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_119'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>name<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.nameSetsQualifiedName(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::name to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_123'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>qualifiedName<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>qualifiedName<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.nameRequired(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::qualifiedName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_128'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>documentation<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fielddocumentation mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>documentation<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::documentation to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_133'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addField<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_134'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addField<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.duplicateTagValueOneOfThrows(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addField to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addFields<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.addMultipleFields(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addFields to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_145'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addOneOf<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addOneOf<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.duplicateTagValueOneOfThrows(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOneOf to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addOneOfs<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.addMultipleOneOfs(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOneOfs to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_157'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addType<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_158'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addType<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.duplicateEnumValueTagInScopeThrows(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addType to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addTypes<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.addMultipleTypes(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addTypes to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_169'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addExtensions<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldextensions mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_170'>170</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_170'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addExtensions<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addExtensions to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_177'>177</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_177'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addExtensions<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.addMultipleExtensions(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addExtensions to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_181'>181</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_181'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addOption<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoptions mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_182'>182</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_182'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addOption<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOption to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_189'>189</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_189'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addOptions<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.addMultipleOptions(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::addOptions to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_193'>193</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_193'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldname mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_194'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_196'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>build<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.duplicateTagValueOneOfThrows(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/MessageElement::validateFieldTagUniqueness &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_197'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>build<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/MessageElement::validateFieldLabel &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_198'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>build<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.duplicateEnumValueTagInScopeThrows(com.squareup.protoparser.MessageElementTest)</span></span> removed call to com/squareup/protoparser/EnumElement::validateValueUniquenessInScope &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_200'>200</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_200'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldname mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldqualifiedName mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fielddocumentation mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldfields mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>build<br/><b>Killed by : </b>com.squareup.protoparser.MessageElementTest.nameSetsQualifiedName(com.squareup.protoparser.MessageElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/MessageElement$Builder::build to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_201'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoneOfs mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldnestedElements mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldextensions mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4243b415_202'>202</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4243b415_202'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>build<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/squareup/protoparser/MessageElement$Builder and fieldoptions mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.squareup.protoparser.ProtoParserTest.trailingCommentNotAssignedToFollowingField(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extendInMessage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithNestedElementsToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.packageDeclaration(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.multipleEverythingToSchema(com.squareup.protoparser.ProtoFileTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.singleLineJavadocComment(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionParentheses(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleTypes(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionsWithNestedMapsAndTrailingCommas(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multipleSingleLineCommentsWithLeadingWhitespace(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.multipleEverythingToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleOptions(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateEnumValueTagInScopeThrows(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.oneOfFieldDisallowed(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithPublicImportsToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.emptyToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.nameSetsQualifiedName(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.invalidHexStringEscape(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithOptionsToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.messageFieldTrailingComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.nameRequired(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.syntaxSpecified(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ExtendElementTest.duplicateTagValueThrows(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.fqcnExtendInMessage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multilineJavadocComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.defaultFieldWithParen(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionNumericalBounds(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.typeParsing(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.structuredOption(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multipleSingleLineComments(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleFields(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithExtendsToSchema(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateTagValueOneOfThrows(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.nestingInMessage(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoFileTest.syntaxToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithExtensionsToSchema(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.noWhitespace(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithImportsToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.ExtendElementTest.simpleToSchema(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateTagValueThrows(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseMessageAndOneOf(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.fqcnExtendInMessageWithPackage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multilineJavadocCommentWithoutLeadingAsterisks(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ExtendElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.ExtendElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.hexTag(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.oneOfToSchema(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.messageFieldLeadingAndTrailingCommentAreCombined(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.syntaxInWrongContextThrows(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithBothImportsToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extensionWithNestedMessage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleExtensions(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleOneOfs(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extendInMessageWithPackage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extend(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.singleLineComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleOptions(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultiplePublicDependencies(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.nullBuilderValuesThrow(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.defaultFieldWithStringEscapes(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithServicesToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.syntaxNotRequired(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleDependencies(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.multilineJavadocCommentWithLeadingWhitespace(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseMessageAndFields(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ExtendElementTest.addMultipleFields(com.squareup.protoparser.ExtendElementTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

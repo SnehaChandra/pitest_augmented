@@ -1,0 +1,3486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>OptionElement.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>// Copyright 2013 Square, Inc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.squareup.protoparser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.google.auto.value.AutoValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedHashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.squareup.protoparser.Utils.appendIndented;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static com.squareup.protoparser.Utils.checkNotNull;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static java.util.Collections.unmodifiableMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@AutoValue</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class OptionElement {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  public enum Kind {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    STRING,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_19'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    BOOLEAN,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    NUMBER,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    ENUM,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    MAP,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_23'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    LIST,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OPTION</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @SuppressWarnings(&#34;unchecked&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static Map&#60;String, Object&#62; optionsAsMap(List&#60;OptionElement&#62; options) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_29'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Map&#60;String, Object&#62; map = new LinkedHashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (OptionElement option : options) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      String name = option.name();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      Object value = option.value();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_34'/>
+34
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_34'>12</a>
+<span>
+1. optionsAsMap : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+2. optionsAsMap : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+3. optionsAsMap : negated conditional &rarr; KILLED<br/>
+4. optionsAsMap : negated conditional &rarr; KILLED<br/>
+5. optionsAsMap : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+6. optionsAsMap : changed conditional boundary to IFGE &rarr; KILLED<br/>
+7. optionsAsMap : changed conditional boundary to IFGE &rarr; KILLED<br/>
+8. optionsAsMap : changed conditional boundary to IFGT &rarr; KILLED<br/>
+9. optionsAsMap : changed conditional boundary to IFLE &rarr; KILLED<br/>
+10. optionsAsMap : changed conditional boundary to IFLT &rarr; KILLED<br/>
+11. optionsAsMap : changed conditional boundary to IFLT &rarr; KILLED<br/>
+12. optionsAsMap : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (value instanceof String || value instanceof List) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_35'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        map.put(name, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_36'>6</a>
+<span>
+1. optionsAsMap : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. optionsAsMap : negated conditional &rarr; KILLED<br/>
+3. optionsAsMap : changed conditional boundary to IFGE &rarr; KILLED<br/>
+4. optionsAsMap : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. optionsAsMap : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. optionsAsMap : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      } else if (value instanceof OptionElement) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_37'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Map&#60;String, Object&#62; newMap = optionsAsMap(Collections.singletonList((OptionElement) value));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_39'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Object oldValue = map.get(name);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_40'>6</a>
+<span>
+1. optionsAsMap : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. optionsAsMap : negated conditional &rarr; KILLED<br/>
+3. optionsAsMap : changed conditional boundary to IFGE &rarr; KILLED<br/>
+4. optionsAsMap : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. optionsAsMap : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. optionsAsMap : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (oldValue instanceof Map) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_41'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          Map&#60;String, Object&#62; oldMap = (Map&#60;String, Object&#62;) oldValue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>          // Existing nested maps are immutable. Make a mutable copy, update, and replace.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_43'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          oldMap = new LinkedHashMap&#60;&#62;(oldMap);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_44'>1</a>
+<span>
+1. optionsAsMap : removed call to java/util/Map::putAll &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>          oldMap.putAll(newMap);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_45'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          map.put(name, oldMap);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_46'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_47'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          map.put(name, newMap);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_49'>6</a>
+<span>
+1. optionsAsMap : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. optionsAsMap : changed conditional boundary to IFLT &rarr; SURVIVED<br/>
+3. optionsAsMap : negated conditional &rarr; KILLED<br/>
+4. optionsAsMap : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. optionsAsMap : changed conditional boundary to IFGT &rarr; KILLED<br/>
+6. optionsAsMap : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      } else if (value instanceof Map) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_50'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Object oldValue = map.get(name);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_51'>6</a>
+<span>
+1. optionsAsMap : changed conditional boundary to IFGE &rarr; SURVIVED<br/>
+2. optionsAsMap : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+3. optionsAsMap : negated conditional &rarr; KILLED<br/>
+4. optionsAsMap : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. optionsAsMap : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. optionsAsMap : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (oldValue instanceof Map) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_52'/>
+52
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_52'>1</a>
+<span>
+1. optionsAsMap : removed call to java/util/Map::putAll &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>          ((Map&#60;String, Object&#62;) oldValue).putAll((Map&#60;String, Object&#62;) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_54'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          map.put(name, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_56'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_57'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        throw new AssertionError(&#34;Option value must be String, Option, List, or Map&#60;String, ?&#62;&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_59'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_60'>1</a>
+<span>
+1. optionsAsMap : mutated return of Object value for com/squareup/protoparser/OptionElement::optionsAsMap to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return unmodifiableMap(map);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /** Return the option with the specified name from the supplied list or null. */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static OptionElement findByName(List&#60;OptionElement&#62; options, String name) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_65'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    checkNotNull(options, &#34;options&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_66'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    checkNotNull(name, &#34;name&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_68'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    OptionElement found = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_69'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    for (OptionElement option : options) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_70'/>
+70
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_70'>6</a>
+<span>
+1. findByName : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. findByName : negated conditional &rarr; KILLED<br/>
+3. findByName : changed conditional boundary to IFGE &rarr; KILLED<br/>
+4. findByName : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. findByName : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. findByName : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (option.name().equals(name)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_71'>1</a>
+<span>
+1. findByName : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (found != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_72'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          throw new IllegalStateException(&#34;Multiple options match name: &#34; + name);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_74'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        found = option;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_76'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_77'>1</a>
+<span>
+1. findByName : mutated return of Object value for com/squareup/protoparser/OptionElement::findByName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return found;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static OptionElement create(String name, Kind kind, Object value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_81'>6</a>
+<span>
+1. create : Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED<br/>
+2. create : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. create : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. create : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+5. create : Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED<br/>
+6. create : mutated return of Object value for com/squareup/protoparser/OptionElement::create to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return create(name, kind, value, false);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public static OptionElement create(String name, Kind kind, Object value,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      boolean isParenthesized) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_86'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    checkNotNull(name, &#34;name&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_87'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    checkNotNull(value, &#34;value&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_89'>1</a>
+<span>
+1. create : mutated return of Object value for com/squareup/protoparser/OptionElement::create to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return new AutoValue_OptionElement(name, kind, value, isParenthesized);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_92'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  OptionElement() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_93'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract String name();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract Kind kind();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract Object value();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public abstract boolean isParenthesized();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public final String toSchema() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_101'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Object value = value();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_102'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    switch (kind()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case STRING:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_104'>6</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 33 with 34 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 34 with 33 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -34 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 34 with -34 &rarr; KILLED<br/>
+6. toSchema : mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return formatName() + &#34; = \&#34;&#34; + value + &#39;&#34;&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case BOOLEAN:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case NUMBER:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case ENUM:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_108'>1</a>
+<span>
+1. toSchema : mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return formatName() + &#34; = &#34; + value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case OPTION: {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_110'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        StringBuilder builder = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_111'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        OptionElement optionValue = (OptionElement) value;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_112'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Treat nested options as non-parenthesized always, prevents double parentheses.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_113'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        optionValue =</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_114'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            OptionElement.create(optionValue.name(), optionValue.kind(), optionValue.value());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_115'/>
+115
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_115'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 45 with 46 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 46 with 45 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -46 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 46 with -46 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        builder.append(formatName()).append(&#39;.&#39;).append(optionValue.toSchema());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_116'/>
+116
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_116'>1</a>
+<span>
+1. toSchema : mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return builder.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case MAP: {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_119'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        StringBuilder builder = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_120'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        builder.append(formatName()).append(&#34; = {\n&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_121'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //noinspection unchecked</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_122'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Map&#60;String, ?&#62; valueMap = (Map&#60;String, ?&#62;) value;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_123'/>
+123
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_123'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/OptionElement::formatOptionMap &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        formatOptionMap(builder, valueMap);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_124'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 124 with 125 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 125 with 124 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -125 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 125 with -125 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        builder.append(&#39;}&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_125'>1</a>
+<span>
+1. toSchema : mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return builder.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      case LIST: {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_128'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        StringBuilder builder = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_129'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        builder.append(formatName()).append(&#34; = [\n&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_130'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //noinspection unchecked</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_131'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;OptionElement&#62; optionList = (List&#60;OptionElement&#62;) value;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_132'/>
+132
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_132'>1</a>
+<span>
+1. toSchema : removed call to com/squareup/protoparser/OptionElement::formatOptionList &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        formatOptionList(builder, optionList);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_133'>5</a>
+<span>
+1. toSchema : Bug fixed: CRCR Add One, Substituted 92 with 93 &rarr; KILLED<br/>
+2. toSchema : Bug fixed: CRCR sub One, Substituted 93 with 92 &rarr; KILLED<br/>
+3. toSchema : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. toSchema : Bug fixed: CRCR replace with One, Substituted -93 with 1 &rarr; KILLED<br/>
+5. toSchema : Bug fixed: Negate variable, Substituted 93 with -93 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        builder.append(&#39;]&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_134'/>
+134
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_134'>1</a>
+<span>
+1. toSchema : mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return builder.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_136'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      default:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_137'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        throw new AssertionError();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_139'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_140'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_141'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public final String toSchemaDeclaration() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_142'/>
+142
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_142'>1</a>
+<span>
+1. toSchemaDeclaration : mutated return of Object value for com/squareup/protoparser/OptionElement::toSchemaDeclaration to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return &#34;option &#34; + toSchema() + &#34;;\n&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_143'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_144'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_145'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void formatOptionList(StringBuilder builder, List&#60;OptionElement&#62; optionList) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_146'/>
+146
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_146'>17</a>
+<span>
+1. formatOptionList : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. formatOptionList : UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT<br/>
+3. formatOptionList : UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT<br/>
+4. formatOptionList : Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED<br/>
+5. formatOptionList : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. formatOptionList : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+7. formatOptionList : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+8. formatOptionList : changed conditional boundary &rarr; KILLED<br/>
+9. formatOptionList : Changed increment from 1 to -1 &rarr; KILLED<br/>
+10. formatOptionList : negated conditional &rarr; KILLED<br/>
+11. formatOptionList : Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED<br/>
+12. formatOptionList : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+13. formatOptionList : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+14. formatOptionList : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+15. formatOptionList : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+16. formatOptionList : UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED<br/>
+17. formatOptionList : UOI Mutator: Reversed increment of local variable &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    for (int i = 0, count = optionList.size(); i &#60; count; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_147'/>
+147
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_147'>13</a>
+<span>
+1. formatOptionList : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. formatOptionList : Bug fixed: CRCR Add One, Substituted 0 with 1 &rarr; KILLED<br/>
+3. formatOptionList : Bug fixed: CRCR sub One, Substituted 1 with 0 &rarr; KILLED<br/>
+4. formatOptionList : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+5. formatOptionList : Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; KILLED<br/>
+6. formatOptionList : Replaced operate with second operand &rarr; KILLED<br/>
+7. formatOptionList : changed conditional boundary &rarr; KILLED<br/>
+8. formatOptionList : negated conditional &rarr; KILLED<br/>
+9. formatOptionList : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED<br/>
+10. formatOptionList : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+11. formatOptionList : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+12. formatOptionList : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+13. formatOptionList : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      String endl = (i &#60; count - 1) ? &#34;,&#34; : &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_148'/>
+148
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_148'>1</a>
+<span>
+1. formatOptionList : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      appendIndented(builder, optionList.get(i).toSchema() + endl);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_149'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_150'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_151'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_152'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static void formatOptionMap(StringBuilder builder, Map&#60;String, ?&#62; valueMap) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_153'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    List&#60;? extends Map.Entry&#60;String, ?&#62;&#62; entries = new ArrayList&#60;&#62;(valueMap.entrySet());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_154'/>
+154
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_154'>17</a>
+<span>
+1. formatOptionMap : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. formatOptionMap : UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT<br/>
+3. formatOptionMap : UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT<br/>
+4. formatOptionMap : Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED<br/>
+5. formatOptionMap : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. formatOptionMap : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+7. formatOptionMap : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+8. formatOptionMap : changed conditional boundary &rarr; KILLED<br/>
+9. formatOptionMap : Changed increment from 1 to -1 &rarr; KILLED<br/>
+10. formatOptionMap : negated conditional &rarr; KILLED<br/>
+11. formatOptionMap : Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED<br/>
+12. formatOptionMap : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+13. formatOptionMap : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+14. formatOptionMap : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+15. formatOptionMap : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+16. formatOptionMap : UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED<br/>
+17. formatOptionMap : UOI Mutator: Reversed increment of local variable &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    for (int i = 0, count = entries.size(); i &#60; count; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_155'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      Map.Entry&#60;String, ?&#62; entry = entries.get(i);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_156'/>
+156
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_156'>13</a>
+<span>
+1. formatOptionMap : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. formatOptionMap : Bug fixed: CRCR Add One, Substituted 0 with 1 &rarr; KILLED<br/>
+3. formatOptionMap : Bug fixed: CRCR sub One, Substituted 1 with 0 &rarr; KILLED<br/>
+4. formatOptionMap : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+5. formatOptionMap : Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; KILLED<br/>
+6. formatOptionMap : Replaced operate with second operand &rarr; KILLED<br/>
+7. formatOptionMap : changed conditional boundary &rarr; KILLED<br/>
+8. formatOptionMap : negated conditional &rarr; KILLED<br/>
+9. formatOptionMap : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED<br/>
+10. formatOptionMap : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+11. formatOptionMap : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+12. formatOptionMap : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+13. formatOptionMap : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      String endl = (i &#60; count - 1) ? &#34;,&#34; : &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_157'>1</a>
+<span>
+1. formatOptionMap : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      appendIndented(builder,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_158'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          entry.getKey() + &#34;: &#34; + formatOptionMapValue(entry.getValue()) + endl);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_159'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_160'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_161'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_162'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static String formatOptionMapValue(Object value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_163'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    checkNotNull(value, &#34;value == null&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_164'/>
+164
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_164'>6</a>
+<span>
+1. formatOptionMapValue : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. formatOptionMapValue : negated conditional &rarr; KILLED<br/>
+3. formatOptionMapValue : changed conditional boundary to IFGE &rarr; KILLED<br/>
+4. formatOptionMapValue : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. formatOptionMapValue : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. formatOptionMapValue : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (value instanceof String) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_165'>6</a>
+<span>
+1. formatOptionMapValue : Bug fixed: CRCR Add One, Substituted 33 with 34 &rarr; KILLED<br/>
+2. formatOptionMapValue : Bug fixed: CRCR sub One, Substituted 34 with 33 &rarr; KILLED<br/>
+3. formatOptionMapValue : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. formatOptionMapValue : Bug fixed: CRCR replace with One, Substituted -34 with 1 &rarr; KILLED<br/>
+5. formatOptionMapValue : Bug fixed: Negate variable, Substituted 34 with -34 &rarr; KILLED<br/>
+6. formatOptionMapValue : mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return &#34;\&#34;&#34; + value + &#39;&#34;&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_166'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_167'/>
+167
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_167'>6</a>
+<span>
+1. formatOptionMapValue : changed conditional boundary to IFGE &rarr; SURVIVED<br/>
+2. formatOptionMapValue : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+3. formatOptionMapValue : negated conditional &rarr; KILLED<br/>
+4. formatOptionMapValue : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. formatOptionMapValue : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. formatOptionMapValue : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (value instanceof Map) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_168'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      StringBuilder builder = new StringBuilder().append(&#34;{\n&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_169'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      //noinspection unchecked</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_170'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      Map&#60;String, ?&#62; map = (Map&#60;String, ?&#62;) value;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_171'/>
+171
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_171'>1</a>
+<span>
+1. formatOptionMapValue : removed call to com/squareup/protoparser/OptionElement::formatOptionMap &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      formatOptionMap(builder, map);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_172'/>
+172
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_172'>6</a>
+<span>
+1. formatOptionMapValue : Bug fixed: CRCR Add One, Substituted 124 with 125 &rarr; NO_COVERAGE<br/>
+2. formatOptionMapValue : Bug fixed: CRCR sub One, Substituted 125 with 124 &rarr; NO_COVERAGE<br/>
+3. formatOptionMapValue : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; NO_COVERAGE<br/>
+4. formatOptionMapValue : Bug fixed: CRCR replace with One, Substituted -125 with 1 &rarr; NO_COVERAGE<br/>
+5. formatOptionMapValue : Bug fixed: Negate variable, Substituted 125 with -125 &rarr; NO_COVERAGE<br/>
+6. formatOptionMapValue : mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return builder.append(&#39;}&#39;).toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_173'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_174'/>
+174
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_174'>6</a>
+<span>
+1. formatOptionMapValue : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. formatOptionMapValue : changed conditional boundary to IFLT &rarr; SURVIVED<br/>
+3. formatOptionMapValue : negated conditional &rarr; KILLED<br/>
+4. formatOptionMapValue : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. formatOptionMapValue : changed conditional boundary to IFGT &rarr; KILLED<br/>
+6. formatOptionMapValue : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (value instanceof List) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_175'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      StringBuilder builder = new StringBuilder().append(&#34;[\n&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_176'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      List&#60;?&#62; list = (List&#60;?&#62;) value;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_177'/>
+177
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_177'>17</a>
+<span>
+1. formatOptionMapValue : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. formatOptionMapValue : UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT<br/>
+3. formatOptionMapValue : UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT<br/>
+4. formatOptionMapValue : Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED<br/>
+5. formatOptionMapValue : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. formatOptionMapValue : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+7. formatOptionMapValue : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+8. formatOptionMapValue : changed conditional boundary &rarr; KILLED<br/>
+9. formatOptionMapValue : Changed increment from 1 to -1 &rarr; KILLED<br/>
+10. formatOptionMapValue : negated conditional &rarr; KILLED<br/>
+11. formatOptionMapValue : Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED<br/>
+12. formatOptionMapValue : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+13. formatOptionMapValue : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+14. formatOptionMapValue : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+15. formatOptionMapValue : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+16. formatOptionMapValue : UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED<br/>
+17. formatOptionMapValue : UOI Mutator: Reversed increment of local variable &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      for (int i = 0, count = list.size(); i &#60; count; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_178'/>
+178
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_178'>13</a>
+<span>
+1. formatOptionMapValue : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. formatOptionMapValue : Bug fixed: CRCR Add One, Substituted 0 with 1 &rarr; KILLED<br/>
+3. formatOptionMapValue : Bug fixed: CRCR sub One, Substituted 1 with 0 &rarr; KILLED<br/>
+4. formatOptionMapValue : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+5. formatOptionMapValue : Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; KILLED<br/>
+6. formatOptionMapValue : Replaced operate with second operand &rarr; KILLED<br/>
+7. formatOptionMapValue : changed conditional boundary &rarr; KILLED<br/>
+8. formatOptionMapValue : negated conditional &rarr; KILLED<br/>
+9. formatOptionMapValue : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED<br/>
+10. formatOptionMapValue : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+11. formatOptionMapValue : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+12. formatOptionMapValue : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+13. formatOptionMapValue : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        String endl = (i &#60; count - 1) ? &#34;,&#34; : &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_179'/>
+179
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_179'>1</a>
+<span>
+1. formatOptionMapValue : removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appendIndented(builder, formatOptionMapValue(list.get(i)) + endl);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_180'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_181'/>
+181
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_181'>1</a>
+<span>
+1. formatOptionMapValue : mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return builder.append(&#34;]&#34;).toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_182'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_183'/>
+183
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_183'>1</a>
+<span>
+1. formatOptionMapValue : mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return value.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_184'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_186'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private String formatName() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_187'/>
+187
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_187'>6</a>
+<span>
+1. formatName : changed conditional boundary to IFLE &rarr; SURVIVED<br/>
+2. formatName : negated conditional &rarr; KILLED<br/>
+3. formatName : changed conditional boundary to IFGE &rarr; KILLED<br/>
+4. formatName : changed conditional boundary to IFGT &rarr; KILLED<br/>
+5. formatName : changed conditional boundary to IFLT &rarr; KILLED<br/>
+6. formatName : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (isParenthesized()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_188'/>
+188
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_188'>11</a>
+<span>
+1. formatName : Bug fixed: CRCR Add One, Substituted 39 with 40 &rarr; KILLED<br/>
+2. formatName : Bug fixed: CRCR Add One, Substituted 40 with 41 &rarr; KILLED<br/>
+3. formatName : Bug fixed: CRCR sub One, Substituted 40 with 39 &rarr; KILLED<br/>
+4. formatName : Bug fixed: CRCR sub One, Substituted 41 with 40 &rarr; KILLED<br/>
+5. formatName : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+6. formatName : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+7. formatName : Bug fixed: CRCR replace with One, Substituted -40 with 1 &rarr; KILLED<br/>
+8. formatName : Bug fixed: CRCR replace with One, Substituted -41 with 1 &rarr; KILLED<br/>
+9. formatName : Bug fixed: Negate variable, Substituted 40 with -40 &rarr; KILLED<br/>
+10. formatName : Bug fixed: Negate variable, Substituted 41 with -41 &rarr; KILLED<br/>
+11. formatName : mutated return of Object value for com/squareup/protoparser/OptionElement::formatName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return &#39;(&#39; + name() + &#39;)&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_190'/>
+190
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_190'>1</a>
+<span>
+1. formatName : mutated return of Object value for com/squareup/protoparser/OptionElement::formatName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return name();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_191'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_192'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@219ae951_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_193'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_34'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> removed call to java/util/Map::putAll &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_51'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_52'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map::putAll &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>optionsAsMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::optionsAsMap to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInList(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInList(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findByName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::findByName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::create to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>create<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::create to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 33 with 34 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 34 with 33 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -34 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 34 with -34 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_115'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 45 with 46 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 46 with 45 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -46 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 46 with -46 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_123'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> removed call to com/squareup/protoparser/OptionElement::formatOptionMap &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 124 with 125 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 125 with 124 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -125 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 125 with -125 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_132'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> removed call to com/squareup/protoparser/OptionElement::formatOptionList &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 92 with 93 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 93 with 92 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -93 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 93 with -93 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_134'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchema<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::toSchema to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toSchemaDeclaration<br/><b>Killed by : </b>com.squareup.protoparser.ServiceElementTest.rpcWithOptionsToSchema(com.squareup.protoparser.ServiceElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::toSchemaDeclaration to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>none</span></span> UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> UOI Mutator: Reversed increment of local variable &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_147'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_148'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionList<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_154'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>none</span></span> UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> UOI Mutator: Reversed increment of local variable &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_156'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMap<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_164'>164</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_164'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 33 with 34 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 34 with 33 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -34 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 34 with -34 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_167'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_171'>171</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_171'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> removed call to com/squareup/protoparser/OptionElement::formatOptionMap &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_172'>172</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_172'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 124 with 125 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 125 with 124 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted -125 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 125 with -125 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_174'>174</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_174'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_177'>177</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_177'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 0 with 0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> UOI Mutator: Reversed increment of local variable &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_178'>178</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_178'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_179'>179</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_179'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> removed call to com/squareup/protoparser/Utils::appendIndented &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_181'>181</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_181'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_183'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatOptionMapValue<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::formatOptionMapValue to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_187'>187</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_187'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_188'>188</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_188'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 39 with 40 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR Add One, Substituted 40 with 41 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 40 with 39 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR sub One, Substituted 41 with 40 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -40 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: CRCR replace with One, Substituted -41 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 40 with -40 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> Bug fixed: Negate variable, Substituted 41 with -41 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::formatName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@219ae951_190'>190</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@219ae951_190'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>formatName<br/><b>Killed by : </b>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest)</span></span> mutated return of Object value for com/squareup/protoparser/OptionElement::formatName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.squareup.protoparser.ProtoParserTest.parseEnum(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.parseEnumWithOptions(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingMultilineComment(com.squareup.protoparser.ProtoParserTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.packageDeclaration(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.simpleWithDocumentationToSchema(com.squareup.protoparser.EnumElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.multipleEverythingToSchema(com.squareup.protoparser.ProtoFileTest) (2 ms)</li><li>com.squareup.protoparser.MessageElementTest.deprecatedTrue(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.FieldElementTest.packedSupportStringAndBoolean(com.squareup.protoparser.FieldElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.packedMissing(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionParentheses(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionsWithNestedMapsAndTrailingCommas(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.rpcWithOptionsToSchema(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.fieldWithOptionsToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.multipleEverythingToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.addMultipleOptions(com.squareup.protoparser.ServiceElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.field(com.squareup.protoparser.FieldElementTest) (3 ms)</li><li>com.squareup.protoparser.OptionElementTest.findInList(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.OptionElementTest.optionListToMap(com.squareup.protoparser.OptionElementTest) (4 ms)</li><li>com.squareup.protoparser.MessageElementTest.addMultipleOptions(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.duplicateValueTagThrows(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.duplicateEnumValueTagInScopeThrows(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.simpleToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.deprecatedSupportStringAndBoolean(com.squareup.protoparser.FieldElementTest) (3 ms)</li><li>com.squareup.protoparser.MessageElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoFileTest.simpleWithOptionsToSchema(com.squareup.protoparser.ProtoFileTest) (0 ms)</li><li>com.squareup.protoparser.OptionElementTest.listToSchema(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.booleanToSchema(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.emptyToSchema(com.squareup.protoparser.EnumElementTest) (0 ms)</li><li>com.squareup.protoparser.OptionElementTest.findInListDuplicate(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.defaultFieldWithParen(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.nestedToSchema(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.addMultipleOptions(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.fieldWithOptionsToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.packedFalse(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.optionNumericalBounds(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.structuredOption(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.simpleWithOptionsToSchema(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.enumValueLeadingAndTrailingCommentsAreCombined(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.OptionElementTest.simpleToSchema(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.addMultipleConstants(com.squareup.protoparser.EnumElementTest) (6 ms)</li><li>com.squareup.protoparser.ProtoParserTest.nestingInMessage(com.squareup.protoparser.ProtoParserTest) (2 ms)</li><li>com.squareup.protoparser.ProtoParserTest.enumValueTrailingComment(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ServiceElementTest.singleWithOptionsToSchema(com.squareup.protoparser.ServiceElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.service(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.defaultValue(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.nullNameThrows(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.FieldElementTest.addMultipleOptions(com.squareup.protoparser.FieldElementTest) (0 ms)</li><li>com.squareup.protoparser.EnumElementTest.duplicateValueTagWithAllowAlias(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.EnumElementTest.nameSetsQualifiedName(com.squareup.protoparser.EnumElementTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.extensionWithNestedMessage(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.findInListMissing(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.deprecatedFalse(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.MessageElementTest.deprecatedMissing(com.squareup.protoparser.MessageElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.packedTrue(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoFileTest.addMultipleOptions(com.squareup.protoparser.ProtoFileTest) (1 ms)</li><li>com.squareup.protoparser.OptionElementTest.mapToSchema(com.squareup.protoparser.OptionElementTest) (1 ms)</li><li>com.squareup.protoparser.MessageElementTest.defaultMissing(com.squareup.protoparser.MessageElementTest) (0 ms)</li><li>com.squareup.protoparser.OptionElementTest.nullValueThrows(com.squareup.protoparser.OptionElementTest) (0 ms)</li><li>com.squareup.protoparser.ProtoParserTest.defaultFieldWithStringEscapes(com.squareup.protoparser.ProtoParserTest) (1 ms)</li><li>com.squareup.protoparser.ProtoParserTest.trailingCommentNotCombinedWhenEmpty(com.squareup.protoparser.ProtoParserTest) (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>
