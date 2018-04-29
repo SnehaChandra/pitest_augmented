@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>TextUtil.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.fasterxml.aalto.util;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class TextUtil</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>{</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    final static int CHAR_SPACE = 0x0020;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_7'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private TextUtil() { }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isAllWhitespace(String str, boolean xml11)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_11'/>
+11
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_11'>17</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : changed conditional boundary &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+7. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+8. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+9. isAllWhitespace : changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE<br/>
+10. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+11. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+12. isAllWhitespace : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+13. isAllWhitespace : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+14. isAllWhitespace : UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; NO_COVERAGE<br/>
+15. isAllWhitespace : UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; NO_COVERAGE<br/>
+16. isAllWhitespace : UOI Mutator: Removed unary increment of local variable &rarr; NO_COVERAGE<br/>
+17. isAllWhitespace : UOI Mutator: Reversed increment of local variable &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (int i = 0, len = str.length(); i &#60; len; ++i) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_12'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            int c = (int) str.charAt(i);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_13'/>
+13
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_13'>30</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+7. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 32 with 1 &rarr; NO_COVERAGE<br/>
+8. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 133 with 1 &rarr; NO_COVERAGE<br/>
+9. isAllWhitespace : changed conditional boundary &rarr; NO_COVERAGE<br/>
+10. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+11. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+12. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+13. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+14. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+15. isAllWhitespace : changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE<br/>
+16. isAllWhitespace : changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE<br/>
+17. isAllWhitespace : changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE<br/>
+18. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+19. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+20. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+21. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+22. isAllWhitespace : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+23. isAllWhitespace : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+24. isAllWhitespace : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+25. isAllWhitespace : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+26. isAllWhitespace : changed conditional boundary to IFGE &rarr; NO_COVERAGE<br/>
+27. isAllWhitespace : changed conditional boundary to IFGT &rarr; NO_COVERAGE<br/>
+28. isAllWhitespace : changed conditional boundary to IFLE &rarr; NO_COVERAGE<br/>
+29. isAllWhitespace : changed conditional boundary to IFLT &rarr; NO_COVERAGE<br/>
+30. isAllWhitespace : changed conditional boundary to IFNE &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (c &#62; CHAR_SPACE &#38;&#38; (!xml11 || c != 0x85)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_14'/>
+14
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_14'>6</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_17'/>
+17
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_17'>6</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static boolean isAllWhitespace(char[] ch, int start, int len, boolean xml11)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_23'/>
+23
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_23'>1</a>
+<span>
+1. isAllWhitespace : Replaced operate with second operand &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        len += start;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_24'/>
+24
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_24'>12</a>
+<span>
+1. isAllWhitespace : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+7. isAllWhitespace : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+8. isAllWhitespace : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+9. isAllWhitespace : UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; NO_COVERAGE<br/>
+10. isAllWhitespace : UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; NO_COVERAGE<br/>
+11. isAllWhitespace : UOI Mutator: Removed unary increment of local variable &rarr; NO_COVERAGE<br/>
+12. isAllWhitespace : UOI Mutator: Reversed increment of local variable &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (; start &#60; len; ++start) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_25'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            int c = (int) ch[start];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_26'>30</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+7. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 32 with 1 &rarr; NO_COVERAGE<br/>
+8. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 133 with 1 &rarr; NO_COVERAGE<br/>
+9. isAllWhitespace : changed conditional boundary &rarr; NO_COVERAGE<br/>
+10. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+11. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+12. isAllWhitespace : negated conditional &rarr; NO_COVERAGE<br/>
+13. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+14. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+15. isAllWhitespace : changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE<br/>
+16. isAllWhitespace : changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE<br/>
+17. isAllWhitespace : changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE<br/>
+18. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+19. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+20. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+21. isAllWhitespace : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+22. isAllWhitespace : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+23. isAllWhitespace : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+24. isAllWhitespace : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+25. isAllWhitespace : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+26. isAllWhitespace : changed conditional boundary to IFGE &rarr; NO_COVERAGE<br/>
+27. isAllWhitespace : changed conditional boundary to IFGT &rarr; NO_COVERAGE<br/>
+28. isAllWhitespace : changed conditional boundary to IFLE &rarr; NO_COVERAGE<br/>
+29. isAllWhitespace : changed conditional boundary to IFLT &rarr; NO_COVERAGE<br/>
+30. isAllWhitespace : changed conditional boundary to IFNE &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            if (c &#62; CHAR_SPACE &#38;&#38; (!xml11 || c != 0x85)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_27'>6</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_30'>6</a>
+<span>
+1. isAllWhitespace : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. isAllWhitespace : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+3. isAllWhitespace : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+4. isAllWhitespace : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; NO_COVERAGE<br/>
+5. isAllWhitespace : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+6. isAllWhitespace : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1c4d602b_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_11'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Removed unary increment of local variable &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Reversed increment of local variable &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_13'>13</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_13'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 32 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 133 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFNE &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_14'>14</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_14'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_17'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_23'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Replaced operate with second operand &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_24'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Removed unary increment of local variable &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> UOI Mutator: Reversed increment of local variable &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_26'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 32 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 133 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLE &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFNE &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_27'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1c4d602b_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1c4d602b_30'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isAllWhitespace<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

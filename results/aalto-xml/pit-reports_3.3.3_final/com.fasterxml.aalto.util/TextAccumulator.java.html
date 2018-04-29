@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>TextAccumulator.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.fasterxml.aalto.util;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Simple utility class used to efficiently accumulate and concatenate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * text passed in various forms</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class TextAccumulator</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>{</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_9'/>
+9
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_9'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private String mText = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_11'/>
+11
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_11'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    private StringBuilder mBuilder = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_13'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public TextAccumulator() { }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean hasText() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_16'/>
+16
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_16'>15</a>
+<span>
+1. hasText : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. hasText : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+3. hasText : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+4. hasText : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+5. hasText : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+6. hasText : Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE<br/>
+7. hasText : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; NO_COVERAGE<br/>
+8. hasText : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+9. hasText : negated conditional &rarr; NO_COVERAGE<br/>
+10. hasText : negated conditional &rarr; NO_COVERAGE<br/>
+11. hasText : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+12. hasText : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+13. hasText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; NO_COVERAGE<br/>
+14. hasText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; NO_COVERAGE<br/>
+15. hasText : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return (mBuilder != null) || (mText != null);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addText(String text)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int len = text.length();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_22'/>
+22
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_22'>7</a>
+<span>
+1. addText : changed conditional boundary &rarr; SURVIVED<br/>
+2. addText : changed conditional boundary to IFEQ &rarr; SURVIVED<br/>
+3. addText : changed conditional boundary to IFLT &rarr; SURVIVED<br/>
+4. addText : negated conditional &rarr; KILLED<br/>
+5. addText : changed conditional boundary to IFGE &rarr; KILLED<br/>
+6. addText : changed conditional boundary to IFGT &rarr; KILLED<br/>
+7. addText : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (len &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Any prior text?</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_24'/>
+24
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_24'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (mText != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_25'/>
+25
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_25'>3</a>
+<span>
+1. addText : Replaced operate with second operand &rarr; SURVIVED<br/>
+2. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+3. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mBuilder = new StringBuilder(mText.length() + len);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_26'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mBuilder.append(mText);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_27'>1</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mText = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_29'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (mBuilder != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_30'/>
+30
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_30'>1</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mBuilder.append(text);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_32'/>
+32
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_32'>1</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mText = text;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_35'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void addText(char[] buf, int start, int end)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_39'>1</a>
+<span>
+1. addText : Replaced operate with second operand &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        int len = end-start;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_40'>7</a>
+<span>
+1. addText : changed conditional boundary &rarr; SURVIVED<br/>
+2. addText : changed conditional boundary to IFEQ &rarr; SURVIVED<br/>
+3. addText : changed conditional boundary to IFLT &rarr; SURVIVED<br/>
+4. addText : negated conditional &rarr; KILLED<br/>
+5. addText : changed conditional boundary to IFGE &rarr; KILLED<br/>
+6. addText : changed conditional boundary to IFGT &rarr; KILLED<br/>
+7. addText : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (len &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Any prior text?</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_42'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (mText != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_43'/>
+43
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_43'>3</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+3. addText : Replaced operate with second operand &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mBuilder = new StringBuilder(mText.length() + len);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_44'/>
+44
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_44'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mBuilder.append(mText);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_45'/>
+45
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_45'>1</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mText = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_46'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            } else if (mBuilder == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                /* more efficient to use a builder than a string; and although</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                 * could use a char array, StringBuilder has the benefit of</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                 * being able to share the array, eventually.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                 */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_51'>1</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                mBuilder = new StringBuilder(len);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_53'>2</a>
+<span>
+1. addText : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+2. addText : Replaced operate with second operand &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            mBuilder.append(buf, start, end-start);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_55'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getAndClear()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        String result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_61'>2</a>
+<span>
+1. getAndClear : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+2. getAndClear : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (mText != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_62'>1</a>
+<span>
+1. getAndClear : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            result = mText;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_63'>1</a>
+<span>
+1. getAndClear : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            mText = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_64'/>
+64
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_64'>2</a>
+<span>
+1. getAndClear : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+2. getAndClear : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        } else if (mBuilder != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_65'/>
+65
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_65'>1</a>
+<span>
+1. getAndClear : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            result = mBuilder.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_66'>1</a>
+<span>
+1. getAndClear : M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            mBuilder = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_68'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            result = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_70'>1</a>
+<span>
+1. getAndClear : mutated return of Object value for com/fasterxml/aalto/util/TextAccumulator::getAndClear to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5c7aa31_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_9'>9</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_9'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_11'>11</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_11'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_16'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 2 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>hasText<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_22'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_24'>24</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_24'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_25'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> Replaced operate with second operand &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_26'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_27'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_29'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_30'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_32'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> Replaced operate with second operand &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_40'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFLT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_44'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_45'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_51'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addText<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_62'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_63'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmText mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_65'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_66'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/util/TextAccumulator and fieldmBuilder mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5c7aa31_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5c7aa31_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAndClear<br/><b>Killed by : </b>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator)</span></span> mutated return of Object value for com/fasterxml/aalto/util/TextAccumulator::getAndClear to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>wstream.TestLongerContent.testLongerWithMultiByteCharsCData(wstream.TestLongerContent) (436 ms)</li><li>wstream.TestLongerContent.testLongerWithMultiByteBytesCData(wstream.TestLongerContent) (727 ms)</li><li>util.TestTextAccumulator.testBasic(util.TestTextAccumulator) (3 ms)</li><li>util.TestTextAccumulator.testBasicWithCharArray(util.TestTextAccumulator) (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

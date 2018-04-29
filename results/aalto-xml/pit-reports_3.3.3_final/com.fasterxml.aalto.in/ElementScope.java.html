@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ElementScope.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.fasterxml.aalto.in;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Simple container of information about an open element (one for which</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * start tag has been seen, but not yet end; or, for empty tags,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * START_ELEMENT has been returned but END_ELEMENT not yet)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class ElementScope</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>{</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    ElementScope mParent;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    PName mName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ElementScope(PName name, ElementScope parent)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_15'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_16'/>
+16
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_16'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        mParent = parent;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_17'/>
+17
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_17'>1</a>
+<span>
+1. <init> : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        mName = name;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_18'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_20'/>
+20
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_20'>2</a>
+<span>
+1. getName : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; SURVIVED<br/>
+2. getName : mutated return of Object value for com/fasterxml/aalto/in/ElementScope::getName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    public PName getName() { return mName; }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_21'/>
+21
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_21'>2</a>
+<span>
+1. getParent : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; SURVIVED<br/>
+2. getParent : mutated return of Object value for com/fasterxml/aalto/in/ElementScope::getParent to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    public ElementScope getParent() { return mParent; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString()</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_26'>2</a>
+<span>
+1. toString : negated conditional &rarr; NO_COVERAGE<br/>
+2. toString : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (mParent == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_27'>2</a>
+<span>
+1. toString : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; NO_COVERAGE<br/>
+2. toString : mutated return of Object value for com/fasterxml/aalto/in/ElementScope::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return mName.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_29'/>
+29
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_29'>3</a>
+<span>
+1. toString : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; NO_COVERAGE<br/>
+2. toString : M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; NO_COVERAGE<br/>
+3. toString : mutated return of Object value for com/fasterxml/aalto/in/ElementScope::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return mParent.toString() + &#34;/&#34; + mName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_16'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_17'>17</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_17'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_20'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getName<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getName<br/><b>Killed by : </b>async.TestElementParsing.testTrivial_array(async.TestElementParsing)</span></span> mutated return of Object value for com/fasterxml/aalto/in/ElementScope::getName to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_21'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParent<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParent<br/><b>Killed by : </b>async.TestEntityParsing.testEntitySkipping(async.TestEntityParsing)</span></span> mutated return of Object value for com/fasterxml/aalto/in/ElementScope::getParent to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_26'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_27'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/fasterxml/aalto/in/ElementScope::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@5b4ccf2d_29'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmParent mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> M1: field dereference on object com/fasterxml/aalto/in/ElementScope and fieldmName mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/fasterxml/aalto/in/ElementScope::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>async.TestAsyncViaEventReader.testSimple_byteArray(async.TestAsyncViaEventReader) (172 ms)</li><li>async.TestXmlDeclaration.testNoDeclaration(async.TestXmlDeclaration) (2 ms)</li><li>sax.TestSaxReader.testSimpleReader(sax.TestSaxReader) (0 ms)</li><li>async.TestElementParsing.testTrivial_array(async.TestElementParsing) (1 ms)</li><li>async.TestDoctypeParsing.testSkipFull(async.TestDoctypeParsing) (7 ms)</li><li>stream.TestSimple.testNamespacesChars(stream.TestSimple) (1 ms)</li><li>async.TestCharactersParsing.testTextWithEntities(async.TestCharactersParsing) (5 ms)</li><li>async.TestElementParsing.testParseElementsWithIllegalChars(async.TestElementParsing) (3 ms)</li><li>async.TestCharactersParsing.testSkipTextWithNumericEntities(async.TestCharactersParsing) (4 ms)</li><li>stream.TestNameDecoding.testValidElemNameDecodingUtf8(stream.TestNameDecoding) (3 ms)</li><li>sax.TestSaxReader.testPI(sax.TestSaxReader) (0 ms)</li><li>async.TestAsyncViaEventReader.testSimple_byteBuffer(async.TestAsyncViaEventReader) (17 ms)</li><li>async.TestCharactersParsing.testSkipTextWithEntities(async.TestCharactersParsing) (14 ms)</li><li>async.TestCDataParsing.testCDataSkip(async.TestCDataParsing) (27 ms)</li><li>async.TestElementParsing.testRootElement(async.TestElementParsing) (4 ms)</li><li>async.TestCharactersParsing.testLinefeeds(async.TestCharactersParsing) (7 ms)</li><li>async.TestElementParsing.testParseElementsWithAttrs(async.TestElementParsing) (8 ms)</li><li>async.TestElementParsing.testGetElementText_buffer(async.TestElementParsing) (1 ms)</li><li>sax.TestSaxReader.testComments(sax.TestSaxReader) (6 ms)</li><li>stream.TestNameDecoding.testValidElemNameDecodingLatin1(stream.TestNameDecoding) (3 ms)</li><li>wstream.TestLongerContent.testLongerWithMultiByteChars(wstream.TestLongerContent) (522 ms)</li><li>wstream.TestLongerContent.testLongerWithMultiByteBytesCData(wstream.TestLongerContent) (727 ms)</li><li>stream.TestSurrogates.testSurrogateSkipping(stream.TestSurrogates) (1 ms)</li><li>async.TestElementParsing.testParseElementsWithUTF8Attrs(async.TestElementParsing) (2 ms)</li><li>async.TestCharactersParsing.testTextWithNumericEntities(async.TestCharactersParsing) (5 ms)</li><li>async.TestElementParsing.testSkipElementsWithUTF8Attrs(async.TestElementParsing) (3 ms)</li><li>wstream.TestNameEncoding.testValidElemNameEncodingLatin1(wstream.TestNameEncoding) (1 ms)</li><li>wstream.TestNameEncoding.testValidElemNameEncodingUtf8(wstream.TestNameEncoding) (1 ms)</li><li>async.TestPIParsing.testProcInstrParse(async.TestPIParsing) (8 ms)</li><li>async.TestEntityParsing.testEntityParsing(async.TestEntityParsing) (9 ms)</li><li>wstream.TestLongerContent.testLongerWithMultiByteCharsCData(wstream.TestLongerContent) (436 ms)</li><li>async.TestPIParsing.testProcInstrSkip(async.TestPIParsing) (5 ms)</li><li>async.TestCharactersParsing.testSkipLinefeeds(async.TestCharactersParsing) (6 ms)</li><li>async.TestCommentParsing.testSkipComments(async.TestCommentParsing) (58 ms)</li><li>wstream.TestLongerContent.testLongerWithMultiByteBytes(wstream.TestLongerContent) (834 ms)</li><li>async.TestElementParsing.testSkipElementsWithAttrs(async.TestElementParsing) (3 ms)</li><li>async.TestDoctypeParsing.testSimplest(async.TestDoctypeParsing) (2 ms)</li><li>async.TestCDataParsing.testCDataParse(async.TestCDataParsing) (39 ms)</li><li>async.TestElementParsing.testTrivial_buffer(async.TestElementParsing) (1 ms)</li><li>stream.TestDTDSkimming.testSimple(stream.TestDTDSkimming) (3 ms)</li><li>async.TestXmlDeclaration.testVersionOnlyDeclaration(async.TestXmlDeclaration) (1 ms)</li><li>async.TestSurrogates.testSkipWithSurrogate(async.TestSurrogates) (2 ms)</li><li>sax.TestEntityResolver.testWithDummyExtSubset(sax.TestEntityResolver) (11 ms)</li><li>async.TestElementParsing.testElements(async.TestElementParsing) (47 ms)</li><li>async.TestDoctypeParsing.testParseFull(async.TestDoctypeParsing) (8 ms)</li><li>async.TestXmlDeclaration.testStandAloneDeclaration(async.TestXmlDeclaration) (3 ms)</li><li>wstream.TestNameEncoding.testValidElemNameEncodingAscii(wstream.TestNameEncoding) (2 ms)</li><li>async.TestEntityParsing.testEntitySkipping(async.TestEntityParsing) (6 ms)</li><li>async.TestXmlDeclaration.testStandAloneDeclaration2(async.TestXmlDeclaration) (2 ms)</li><li>async.TestCommentParsing.testParseComments(async.TestCommentParsing) (44 ms)</li><li>stream.TestNameDecoding.testValidElemNameDecodingAscii(stream.TestNameDecoding) (2 ms)</li><li>async.TestSurrogates.testCdataWithSurrogate(async.TestSurrogates) (2 ms)</li><li>async.TestXmlDeclaration.testEncodingDeclaration(async.TestXmlDeclaration) (5 ms)</li><li>async.TestElementParsing.testGetElementText_array(async.TestElementParsing) (1 ms)</li><li>evt.TestLaziness.testEventReaderNonLaziness(evt.TestLaziness) (36 ms)</li><li>stream.TestSimple.testNamespacesBytes(stream.TestSimple) (2 ms)</li><li>stream.TestSurrogates.testSurrogateParsing(stream.TestSurrogates) (0 ms)</li><li>async.TestDoctypeParsing.testWithSystemId(async.TestDoctypeParsing) (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

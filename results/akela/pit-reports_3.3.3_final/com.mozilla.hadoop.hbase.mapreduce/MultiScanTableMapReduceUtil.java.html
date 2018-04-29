@@ -1,0 +1,4203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>MultiScanTableMapReduceUtil.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2010 Mozilla Foundation</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed to the Apache Software Foundation (ASF) under one</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * or more contributor license agreements.  See the NOTICE file</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed with this work for additional information</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * regarding copyright ownership.  The ASF licenses this file</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * to you under the Apache License, Version 2.0 (the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * &#34;License&#34;); you may not use this file except in compliance</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * with the License.  You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.mozilla.hadoop.hbase.mapreduce;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.ByteArrayInputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.ByteArrayOutputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.DataInputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.DataOutputStream;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.text.SimpleDateFormat;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Calendar;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.logging.Log;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.commons.logging.LogFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.hbase.client.Scan;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.hbase.mapreduce.TableMapper;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.hbase.util.Base64;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.hbase.util.Bytes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.io.ArrayWritable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.io.Writable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.io.WritableComparable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.hadoop.mapreduce.Job;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.mozilla.util.DateUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.mozilla.util.Pair;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_47'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>public class MultiScanTableMapReduceUtil {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_49'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private static Log LOG = LogFactory.getLog(MultiScanTableMapReduceUtil.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Use this before submitting a TableMap job. It will appropriately set up</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * the job.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param table</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The table name to read from.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param scans</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The scan instances with the columns, time range etc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param mapper</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The mapper class to use.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param outputKeyClass</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The class of the output key.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param outputValueClass</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The class of the output value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param job</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *            The current job to adjust.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws IOException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; *             When setting up the details fails.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;@SuppressWarnings(&#34;rawtypes&#34;)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static void initMultiScanTableMapperJob(final String table, final Scan[] scans,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;final Class&#60;? extends TableMapper&#62; mapper, final Class&#60;? extends WritableComparable&#62; outputKeyClass,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;final Class&#60;? extends Writable&#62; outputValueClass, final Job job) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_75'/>
+75
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_75'>1</a>
+<span>
+1. initMultiScanTableMapperJob : removed call to org/apache/hadoop/mapreduce/Job::setInputFormatClass &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;job.setInputFormatClass(MultiScanTableInputFormat.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_76'>1</a>
+<span>
+1. initMultiScanTableMapperJob : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;    if (outputValueClass != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_77'>1</a>
+<span>
+1. initMultiScanTableMapperJob : removed call to org/apache/hadoop/mapreduce/Job::setMapOutputValueClass &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;    &#9;job.setMapOutputValueClass(outputValueClass);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_79'/>
+79
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_79'>1</a>
+<span>
+1. initMultiScanTableMapperJob : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;    if (outputKeyClass != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_80'/>
+80
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_80'>1</a>
+<span>
+1. initMultiScanTableMapperJob : removed call to org/apache/hadoop/mapreduce/Job::setMapOutputKeyClass &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;    &#9;job.setMapOutputKeyClass(outputKeyClass);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_82'>1</a>
+<span>
+1. initMultiScanTableMapperJob : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (mapper != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_83'/>
+83
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_83'>1</a>
+<span>
+1. initMultiScanTableMapperJob : removed call to org/apache/hadoop/mapreduce/Job::setMapperClass &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            job.setMapperClass(mapper);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_85'/>
+85
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_85'>1</a>
+<span>
+1. initMultiScanTableMapperJob : removed call to org/apache/hadoop/conf/Configuration::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;job.getConfiguration().set(MultiScanTableInputFormat.INPUT_TABLE, table);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_86'>1</a>
+<span>
+1. initMultiScanTableMapperJob : removed call to org/apache/hadoop/conf/Configuration::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;job.getConfiguration().set(MultiScanTableInputFormat.SCANS, convertScanArrayToString(scans));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_87'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Converts base64 scans string back into a Scan array</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param base64</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws IOException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static Scan[] convertStringToScanArray(final String base64) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_96'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;final DataInputStream dis = new DataInputStream(new ByteArrayInputStream(Base64.decode(base64)));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_98'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;ArrayWritable aw = new ArrayWritable(Scan.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_99'/>
+99
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_99'>1</a>
+<span>
+1. convertStringToScanArray : removed call to org/apache/hadoop/io/ArrayWritable::readFields &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;aw.readFields(dis);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_101'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;Writable[] writables = aw.get();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_102'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;Scan[] scans = new Scan[writables.length];</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_103'/>
+103
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_103'>12</a>
+<span>
+1. convertStringToScanArray : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. convertStringToScanArray : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE<br/>
+3. convertStringToScanArray : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; NO_COVERAGE<br/>
+4. convertStringToScanArray : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; NO_COVERAGE<br/>
+5. convertStringToScanArray : changed conditional boundary &rarr; NO_COVERAGE<br/>
+6. convertStringToScanArray : negated conditional &rarr; NO_COVERAGE<br/>
+7. convertStringToScanArray : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+8. convertStringToScanArray : changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE<br/>
+9. convertStringToScanArray : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+10. convertStringToScanArray : changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE<br/>
+11. convertStringToScanArray : changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE<br/>
+12. convertStringToScanArray : changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;for (int i=0; i &#60; writables.length; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_104'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;&#9;scans[i] = (Scan)writables[i];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_107'/>
+107
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_107'>1</a>
+<span>
+1. convertStringToScanArray : mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::convertStringToScanArray to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;return scans;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Converts an array of Scan objects into a base64 string</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_112'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param scans</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_114'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @throws IOException</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_115'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static String convertScanArrayToString(final Scan[] scans) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_117'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;final ByteArrayOutputStream baos = new ByteArrayOutputStream();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_118'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;final DataOutputStream dos = new DataOutputStream(baos);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_120'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;ArrayWritable aw = new ArrayWritable(Scan.class, scans);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_121'/>
+121
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_121'>1</a>
+<span>
+1. convertScanArrayToString : removed call to org/apache/hadoop/io/ArrayWritable::write &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;aw.write(dos);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_123'/>
+123
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_123'>1</a>
+<span>
+1. convertScanArrayToString : mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::convertScanArrayToString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;return Base64.encodeBytes(baos.toByteArray());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Generates an array of scans for different salted ranges for the given dates</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * This is really only useful for Mozilla Socorro in the way it does row-id hashing</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param startDate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_130'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param endDate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_132'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_133'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static Scan[] generateScans(Calendar startCal, Calendar endCal, List&#60;Pair&#60;String,String&#62;&#62; columns, int caching, boolean cacheBlocks) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_134'/>
+134
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_134'>1</a>
+<span>
+1. generateScans : mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateScans to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;return generateHexPrefixScans(startCal, endCal, &#34;yyMMdd&#34;, columns, caching, cacheBlocks);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_136'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Generates an array of scans for hex character and date prefixed ranges for the given dates (e.g. 16 buckets)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_139'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param startCal</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_140'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param endCal</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_141'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param dateFormat</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_142'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param columns</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_143'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param caching</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_144'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param cacheBlocks</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_145'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_146'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_147'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static Scan[] generateHexPrefixScans(Calendar startCal, Calendar endCal, String dateFormat, List&#60;Pair&#60;String,String&#62;&#62; columns, int caching, boolean cacheBlocks) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_148'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;ArrayList&#60;Scan&#62; scans = new ArrayList&#60;Scan&#62;();&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_149'>5</a>
+<span>
+1. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 16 with 0 &rarr; KILLED<br/>
+4. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;String[] salts = new String[16];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_150'/>
+150
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_150'>17</a>
+<span>
+1. generateHexPrefixScans : negated conditional &rarr; SURVIVED<br/>
+2. generateHexPrefixScans : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+3. generateHexPrefixScans : changed conditional boundary to IF_ICMPLT &rarr; SURVIVED<br/>
+4. generateHexPrefixScans : changed conditional boundary to IF_ICMPNE &rarr; SURVIVED<br/>
+5. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+6. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+7. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+8. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+9. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+10. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 16 with 0 &rarr; KILLED<br/>
+11. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+12. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+13. generateHexPrefixScans : changed conditional boundary &rarr; KILLED<br/>
+14. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+15. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+16. generateHexPrefixScans : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+17. generateHexPrefixScans : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;for (int i=0; i &#60; 16; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_151'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;salts[i] = Integer.toHexString(i);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_152'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_153'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_154'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;SimpleDateFormat rowsdf = new SimpleDateFormat(dateFormat);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_155'/>
+155
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_155'>5</a>
+<span>
+1. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED<br/>
+4. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;long endTime = DateUtil.getEndTimeAtResolution(endCal.getTimeInMillis(), Calendar.DATE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_156'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_157'/>
+157
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_157'>7</a>
+<span>
+1. generateHexPrefixScans : changed conditional boundary &rarr; SURVIVED<br/>
+2. generateHexPrefixScans : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+3. generateHexPrefixScans : changed conditional boundary to IFEQ &rarr; TIMED_OUT<br/>
+4. generateHexPrefixScans : negated conditional &rarr; KILLED<br/>
+5. generateHexPrefixScans : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. generateHexPrefixScans : changed conditional boundary to IFLT &rarr; KILLED<br/>
+7. generateHexPrefixScans : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;while (startCal.getTimeInMillis() &#60; endTime) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_158'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;int d = Integer.parseInt(rowsdf.format(startCal.getTime()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_159'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_160'/>
+160
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_160'>12</a>
+<span>
+1. generateHexPrefixScans : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+2. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+3. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+4. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+5. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+6. generateHexPrefixScans : changed conditional boundary &rarr; KILLED<br/>
+7. generateHexPrefixScans : negated conditional &rarr; KILLED<br/>
+8. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+9. generateHexPrefixScans : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+10. generateHexPrefixScans : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+11. generateHexPrefixScans : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+12. generateHexPrefixScans : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;for (int i=0; i &#60; salts.length; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_161'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;Scan s = new Scan();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_162'/>
+162
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_162'>1</a>
+<span>
+1. generateHexPrefixScans : removed call to org/apache/hadoop/hbase/client/Scan::setCaching &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;s.setCaching(caching);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_163'/>
+163
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_163'>1</a>
+<span>
+1. generateHexPrefixScans : removed call to org/apache/hadoop/hbase/client/Scan::setCacheBlocks &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;s.setCacheBlocks(cacheBlocks);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_164'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_165'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;// add columns</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_166'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;for (Pair&#60;String,String&#62; pair : columns) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_167'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;&#9;s.addColumn(pair.getFirst().getBytes(), pair.getSecond().getBytes());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_168'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_169'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_170'/>
+170
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_170'>10</a>
+<span>
+1. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+3. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+4. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+5. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+6. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+7. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+8. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+9. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+10. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;&#9;s.setStartRow(Bytes.toBytes(salts[i] + String.format(&#34;%06d&#34;, d)));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_171'/>
+171
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_171'>17</a>
+<span>
+1. generateHexPrefixScans : AOD: Replaced integer addition with first operand &rarr; SURVIVED<br/>
+2. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+3. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+4. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+5. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+7. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+8. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+9. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+10. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+11. generateHexPrefixScans : Replaced operate with second operand &rarr; KILLED<br/>
+12. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+13. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+14. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+15. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+16. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+17. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;s.setStopRow(Bytes.toBytes(salts[i] + String.format(&#34;%06d&#34;, d + 1)));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_172'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_173'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;if (LOG.isDebugEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_174'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;&#9;&#9;&#9;&#9;LOG.debug(&#34;Adding start-stop range: &#34; + salts[i] + String.format(&#34;%06d&#34;, d) + &#34; - &#34; + salts[i] + String.format(&#34;%06d&#34;, d + 1));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_175'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_176'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_177'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;scans.add(s);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_178'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_179'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_180'/>
+180
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_180'>11</a>
+<span>
+1. generateHexPrefixScans : removed call to java/util/Calendar::add &rarr; TIMED_OUT<br/>
+2. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+3. generateHexPrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+4. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+5. generateHexPrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED<br/>
+7. generateHexPrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+8. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+9. generateHexPrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+10. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+11. generateHexPrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>&#9;&#9;&#9;startCal.add(Calendar.DATE, 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_181'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_182'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_183'/>
+183
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_183'>1</a>
+<span>
+1. generateHexPrefixScans : mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateHexPrefixScans to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return scans.toArray(new Scan[scans.size()]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_184'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_186'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_187'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Generates an array of scans for byte and date prefixed ranges for the given dates (e.g. 256 buckets)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_188'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param startCal</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param endCal</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_190'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param dateFormat</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_191'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param columns</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_192'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param caching</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_193'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param cacheBlocks</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_194'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_195'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_196'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static Scan[] generateBytePrefixScans(Calendar startCal, Calendar endCal, String dateFormat, List&#60;Pair&#60;String,String&#62;&#62; columns, int caching, boolean cacheBlocks) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_197'/>
+197
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_197'>6</a>
+<span>
+1. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+6. generateBytePrefixScans : mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateBytePrefixScans to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;    return generateBytePrefixScans(startCal, endCal, dateFormat, columns, caching, cacheBlocks, 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_198'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_199'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_200'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_201'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Same as above version but allows for specifying batch size as well</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_202'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param startCal</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_203'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param endCal</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_204'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param dateFormat</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_205'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param columns</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_206'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param caching</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_207'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param cacheBlocks</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_208'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param batch</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_209'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_210'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_211'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public static Scan[] generateBytePrefixScans(Calendar startCal, Calendar endCal, String dateFormat, List&#60;Pair&#60;String,String&#62;&#62; columns, int caching, boolean cacheBlocks, int batch) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_212'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;ArrayList&#60;Scan&#62; scans = new ArrayList&#60;Scan&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_213'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_214'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;SimpleDateFormat rowsdf = new SimpleDateFormat(dateFormat);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_215'/>
+215
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_215'>5</a>
+<span>
+1. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;long endTime = DateUtil.getEndTimeAtResolution(endCal.getTimeInMillis(), Calendar.DATE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_216'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_217'/>
+217
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_217'>5</a>
+<span>
+1. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;byte[] temp = new byte[1];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_218'/>
+218
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_218'>7</a>
+<span>
+1. generateBytePrefixScans : changed conditional boundary &rarr; SURVIVED<br/>
+2. generateBytePrefixScans : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+3. generateBytePrefixScans : changed conditional boundary to IFEQ &rarr; TIMED_OUT<br/>
+4. generateBytePrefixScans : negated conditional &rarr; KILLED<br/>
+5. generateBytePrefixScans : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. generateBytePrefixScans : changed conditional boundary to IFLT &rarr; KILLED<br/>
+7. generateBytePrefixScans : changed conditional boundary to IFNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;while (startCal.getTimeInMillis() &#60; endTime) {&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_219'/>
+219
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_219'>21</a>
+<span>
+1. generateBytePrefixScans : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+2. generateBytePrefixScans : UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT<br/>
+3. generateBytePrefixScans : UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT<br/>
+4. generateBytePrefixScans : UOI Mutator: Reversed increment of local variable &rarr; TIMED_OUT<br/>
+5. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+6. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+7. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+8. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+9. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted -128 with 0 &rarr; KILLED<br/>
+10. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 127 with 0 &rarr; KILLED<br/>
+11. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+12. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+13. generateBytePrefixScans : changed conditional boundary &rarr; KILLED<br/>
+14. generateBytePrefixScans : negated conditional &rarr; KILLED<br/>
+15. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+16. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+17. generateBytePrefixScans : changed conditional boundary to IF_ICMPEQ &rarr; KILLED<br/>
+18. generateBytePrefixScans : changed conditional boundary to IF_ICMPGE &rarr; KILLED<br/>
+19. generateBytePrefixScans : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+20. generateBytePrefixScans : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+21. generateBytePrefixScans : UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>&#9;&#9;&#9;for (int b=Byte.MIN_VALUE; b &#60;= Byte.MAX_VALUE; b++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_220'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;    int d = Integer.parseInt(rowsdf.format(startCal.getTime()));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_221'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_222'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;Scan s = new Scan();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_223'/>
+223
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_223'>1</a>
+<span>
+1. generateBytePrefixScans : removed call to org/apache/hadoop/hbase/client/Scan::setCaching &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;s.setCaching(caching);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_224'/>
+224
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_224'>1</a>
+<span>
+1. generateBytePrefixScans : removed call to org/apache/hadoop/hbase/client/Scan::setCacheBlocks &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;s.setCacheBlocks(cacheBlocks);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_225'/>
+225
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_225'>13</a>
+<span>
+1. generateBytePrefixScans : changed conditional boundary &rarr; SURVIVED<br/>
+2. generateBytePrefixScans : negated conditional &rarr; SURVIVED<br/>
+3. generateBytePrefixScans : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+4. generateBytePrefixScans : changed conditional boundary to IF_ICMPGE &rarr; SURVIVED<br/>
+5. generateBytePrefixScans : changed conditional boundary to IF_ICMPGT &rarr; SURVIVED<br/>
+6. generateBytePrefixScans : changed conditional boundary to IF_ICMPGT &rarr; SURVIVED<br/>
+7. generateBytePrefixScans : changed conditional boundary to IF_ICMPLT &rarr; SURVIVED<br/>
+8. generateBytePrefixScans : changed conditional boundary to IF_ICMPNE &rarr; SURVIVED<br/>
+9. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+10. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+11. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+12. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+13. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;if (batch &#62; 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_226'/>
+226
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_226'>1</a>
+<span>
+1. generateBytePrefixScans : removed call to org/apache/hadoop/hbase/client/Scan::setBatch &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;    s.setBatch(batch);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_227'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_228'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;// add columns</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_229'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;for (Pair&#60;String,String&#62; pair : columns) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_230'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    s.addColumn(pair.getFirst().getBytes(), pair.getSecond().getBytes());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_231'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_232'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_233'/>
+233
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_233'>5</a>
+<span>
+1. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;&#9;temp[0] = (byte) b;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_234'/>
+234
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_234'>10</a>
+<span>
+1. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+6. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+7. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+8. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+9. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+10. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;&#9;s.setStartRow(Bytes.add(temp , Bytes.toBytes(String.format(&#34;%06d&#34;, d))));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_235'/>
+235
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_235'>17</a>
+<span>
+1. generateBytePrefixScans : AOD: Replaced integer addition with first operand &rarr; SURVIVED<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; SURVIVED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+7. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+8. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+9. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED<br/>
+10. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+11. generateBytePrefixScans : Replaced operate with second operand &rarr; KILLED<br/>
+12. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+13. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+14. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+15. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+16. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+17. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;s.setStopRow(Bytes.add(temp , Bytes.toBytes(String.format(&#34;%06d&#34;, d + 1))));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_236'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;if (LOG.isDebugEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_237'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    LOG.info(&#34;Adding start-stop range: &#34; + temp + String.format(&#34;%06d&#34;, d) + &#34; - &#34; + temp + String.format(&#34;%06d&#34;, d + 1));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_238'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_239'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_240'/>
+240
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_240'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;scans.add(s);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_241'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_242'/>
+242
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_242'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_243'/>
+243
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_243'>11</a>
+<span>
+1. generateBytePrefixScans : removed call to java/util/Calendar::add &rarr; TIMED_OUT<br/>
+2. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+3. generateBytePrefixScans : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+4. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+5. generateBytePrefixScans : Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED<br/>
+6. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED<br/>
+7. generateBytePrefixScans : Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED<br/>
+8. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+9. generateBytePrefixScans : Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED<br/>
+10. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+11. generateBytePrefixScans : Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>&#9;&#9;&#9;startCal.add(Calendar.DATE, 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_244'/>
+244
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_244'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_245'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_246'/>
+246
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_246'>1</a>
+<span>
+1. generateBytePrefixScans : mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateBytePrefixScans to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return scans.toArray(new Scan[scans.size()]);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_247'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3d94b49d_248'/>
+248
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_248'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_75'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/mapreduce/Job::setInputFormatClass &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_76'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_77'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/mapreduce/Job::setMapOutputValueClass &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_79'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_80'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/mapreduce/Job::setMapOutputKeyClass &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_82'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_83'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/mapreduce/Job::setMapperClass &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_85'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/conf/Configuration::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_86'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>initMultiScanTableMapperJob<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/conf/Configuration::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_99'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/io/ArrayWritable::readFields &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_103'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_107'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convertStringToScanArray<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::convertStringToScanArray to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_121'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convertScanArrayToString<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/io/ArrayWritable::write &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_123'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>convertScanArrayToString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::convertScanArrayToString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_134'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateScans<br/><b>Killed by : </b>none</span></span> mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateScans to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 16 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_150'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 16 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_155'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_157'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> negated conditional &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFEQ &rarr; TIMED_OUT</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_160'>160</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_160'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_162'>162</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_162'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/hbase/client/Scan::setCaching &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_163'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/hbase/client/Scan::setCacheBlocks &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_170'>170</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_170'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_171'>171</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_171'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> AOD: Replaced integer addition with first operand &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_180'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>none</span></span> removed call to java/util/Calendar::add &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_183'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateHexPrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateHexPrefixScans to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_197'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateBytePrefixScans to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_215'>215</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_215'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_217'>217</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_217'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_218'>218</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_218'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> negated conditional &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFEQ &rarr; TIMED_OUT</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_219'>219</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_219'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -128 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 127 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> UOI Mutator: Added unary decrement 1 -&#62; 0 to local variable &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> UOI Mutator: Added unary increment 1 -&#62; 2 to local variable &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> UOI Mutator: Removed unary increment of local variable &rarr; TIMED_OUT</p> <p class='TIMED_OUT'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> UOI Mutator: Reversed increment of local variable &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_223'>223</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_223'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/hbase/client/Scan::setCaching &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_224'>224</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_224'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/hbase/client/Scan::setCacheBlocks &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_225'>225</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_225'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPNE &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_226'>226</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_226'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> removed call to org/apache/hadoop/hbase/client/Scan::setBatch &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_233'>233</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_233'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_234'>234</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_234'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_235'>235</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_235'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> AOD: Replaced integer addition with first operand &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 0 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_243'>243</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_243'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR sub One, Substituted 0 with -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 5 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: CRCR replace with One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> Bug fixed: Negate variable, Substituted -1 with 1 &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>none</span></span> removed call to java/util/Calendar::add &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3d94b49d_246'>246</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3d94b49d_246'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>generateBytePrefixScans<br/><b>Killed by : </b>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest)</span></span> mutated return of Object value for com/mozilla/hadoop/hbase/mapreduce/MultiScanTableMapReduceUtil::generateBytePrefixScans to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanBytePrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest) (36 ms)</li><li>com.mozilla.util.MultiScanTableMapReduceUtilTest.testMultiScanHexPrefix(com.mozilla.util.MultiScanTableMapReduceUtilTest) (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Interval.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.ahocorasick.interval;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Interval implements Intervalable {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final int start;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final int end;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructs an interval with a start and end position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param start The interval&#39;s starting text position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param end   The interval&#39;s ending text position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_14'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Interval(final int start, final int end) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_15'/>
+15
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_15'>1</a>
+<span>
+1. <init> : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        this.start = start;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_16'/>
+16
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_16'>1</a>
+<span>
+1. <init> : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        this.end = end;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_17'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the starting offset into the text for this interval.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A number between 0 (start of text) and the text length.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getStart() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_26'/>
+26
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_26'>2</a>
+<span>
+1. getStart : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+2. getStart : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.start;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the ending offset into the text for this interval.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A number between getStart() + 1 and the text length.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getEnd() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_36'/>
+36
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_36'>2</a>
+<span>
+1. getEnd : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+2. getEnd : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.end;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the length of the interval.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The end position less the start position, plus one.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int size() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_46'>10</a>
+<span>
+1. size : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+2. size : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+3. size : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+4. size : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+5. size : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+6. size : Replaced operate with second operand &rarr; KILLED<br/>
+7. size : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED<br/>
+8. size : Replaced operate with second operand &rarr; KILLED<br/>
+9. size : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED<br/>
+10. size : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return end - start + 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Answers whether the given interval overlaps this interval</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * instance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param other</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true The intervals overlap.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean overlapsWith(final Interval other) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_57'>9</a>
+<span>
+1. overlapsWith : changed conditional boundary &rarr; SURVIVED<br/>
+2. overlapsWith : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+3. overlapsWith : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+4. overlapsWith : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+5. overlapsWith : changed conditional boundary to IF_ICMPGE &rarr; SURVIVED<br/>
+6. overlapsWith : negated conditional &rarr; KILLED<br/>
+7. overlapsWith : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+8. overlapsWith : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+9. overlapsWith : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.start &#60;= other.getEnd() &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_58'>17</a>
+<span>
+1. overlapsWith : changed conditional boundary &rarr; SURVIVED<br/>
+2. overlapsWith : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED<br/>
+3. overlapsWith : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED<br/>
+4. overlapsWith : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+5. overlapsWith : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+6. overlapsWith : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+7. overlapsWith : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+8. overlapsWith : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+9. overlapsWith : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+10. overlapsWith : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED<br/>
+11. overlapsWith : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+12. overlapsWith : negated conditional &rarr; KILLED<br/>
+13. overlapsWith : changed conditional boundary to IF_ICMPEQ &rarr; KILLED<br/>
+14. overlapsWith : changed conditional boundary to IF_ICMPGE &rarr; KILLED<br/>
+15. overlapsWith : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+16. overlapsWith : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+17. overlapsWith : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                this.end &#62;= other.getStart();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean overlapsWith(int point) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_62'>25</a>
+<span>
+1. overlapsWith : changed conditional boundary &rarr; SURVIVED<br/>
+2. overlapsWith : changed conditional boundary &rarr; SURVIVED<br/>
+3. overlapsWith : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED<br/>
+4. overlapsWith : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED<br/>
+5. overlapsWith : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+6. overlapsWith : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+7. overlapsWith : changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED<br/>
+8. overlapsWith : changed conditional boundary to IF_ICMPGE &rarr; SURVIVED<br/>
+9. overlapsWith : changed conditional boundary to IF_ICMPGE &rarr; SURVIVED<br/>
+10. overlapsWith : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+11. overlapsWith : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+12. overlapsWith : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+13. overlapsWith : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+14. overlapsWith : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+15. overlapsWith : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+16. overlapsWith : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED<br/>
+17. overlapsWith : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+18. overlapsWith : negated conditional &rarr; KILLED<br/>
+19. overlapsWith : negated conditional &rarr; KILLED<br/>
+20. overlapsWith : changed conditional boundary to IF_ICMPEQ &rarr; KILLED<br/>
+21. overlapsWith : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+22. overlapsWith : changed conditional boundary to IF_ICMPLT &rarr; KILLED<br/>
+23. overlapsWith : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+24. overlapsWith : changed conditional boundary to IF_ICMPNE &rarr; KILLED<br/>
+25. overlapsWith : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.start &#60;= point &#38;&#38; point &#60;= this.end;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_67'/>
+67
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_67'>6</a>
+<span>
+1. equals : changed conditional boundary to IFGE &rarr; SURVIVED<br/>
+2. equals : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+3. equals : negated conditional &rarr; KILLED<br/>
+4. equals : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+5. equals : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. equals : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (!(o instanceof Intervalable)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_68'>6</a>
+<span>
+1. equals : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. equals : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE<br/>
+3. equals : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE<br/>
+4. equals : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+5. equals : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE<br/>
+6. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_70'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Intervalable other = (Intervalable) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_71'/>
+71
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_71'>9</a>
+<span>
+1. equals : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+2. equals : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+3. equals : changed conditional boundary to IF_ICMPGT &rarr; SURVIVED<br/>
+4. equals : changed conditional boundary to IF_ICMPGT &rarr; SURVIVED<br/>
+5. equals : changed conditional boundary to IF_ICMPLT &rarr; SURVIVED<br/>
+6. equals : negated conditional &rarr; KILLED<br/>
+7. equals : changed conditional boundary to IF_ICMPEQ &rarr; KILLED<br/>
+8. equals : changed conditional boundary to IF_ICMPGE &rarr; KILLED<br/>
+9. equals : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return this.start == other.getStart() &#38;&#38;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_72'/>
+72
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_72'>16</a>
+<span>
+1. equals : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED<br/>
+2. equals : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED<br/>
+3. equals : changed conditional boundary to IF_ICMPLT &rarr; SURVIVED<br/>
+4. equals : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+5. equals : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED<br/>
+6. equals : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+7. equals : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED<br/>
+8. equals : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+9. equals : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED<br/>
+10. equals : Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED<br/>
+11. equals : Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED<br/>
+12. equals : negated conditional &rarr; KILLED<br/>
+13. equals : changed conditional boundary to IF_ICMPEQ &rarr; KILLED<br/>
+14. equals : changed conditional boundary to IF_ICMPGE &rarr; KILLED<br/>
+15. equals : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+16. equals : changed conditional boundary to IF_ICMPGT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                this.end == other.getEnd();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int hashCode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_77'>24</a>
+<span>
+1. hashCode : AOD: Replaced integer remainder with first operand &rarr; NO_COVERAGE<br/>
+2. hashCode : AOD: Replaced integer remainder with first operand &rarr; NO_COVERAGE<br/>
+3. hashCode : AOR: Replaced integer modulus with addition &rarr; NO_COVERAGE<br/>
+4. hashCode : AOR: Replaced integer modulus with addition &rarr; NO_COVERAGE<br/>
+5. hashCode : AOR: Replaced integer modulus with division &rarr; NO_COVERAGE<br/>
+6. hashCode : AOR: Replaced integer modulus with division &rarr; NO_COVERAGE<br/>
+7. hashCode : AOR: Replaced integer modulus with subtraction &rarr; NO_COVERAGE<br/>
+8. hashCode : AOR: Replaced integer modulus with subtraction &rarr; NO_COVERAGE<br/>
+9. hashCode : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+10. hashCode : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+11. hashCode : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE<br/>
+12. hashCode : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE<br/>
+13. hashCode : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE<br/>
+14. hashCode : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE<br/>
+15. hashCode : Bug fixed: CRCR replace with One, Substituted 100 with 1 &rarr; NO_COVERAGE<br/>
+16. hashCode : Bug fixed: CRCR replace with One, Substituted 100 with 1 &rarr; NO_COVERAGE<br/>
+17. hashCode : Replaced operate with second operand &rarr; NO_COVERAGE<br/>
+18. hashCode : Replaced integer modulus with multiplication &rarr; NO_COVERAGE<br/>
+19. hashCode : Replaced integer modulus with multiplication &rarr; NO_COVERAGE<br/>
+20. hashCode : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE<br/>
+21. hashCode : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE<br/>
+22. hashCode : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; NO_COVERAGE<br/>
+23. hashCode : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; NO_COVERAGE<br/>
+24. hashCode : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return this.start % 100 + this.end % 100;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int compareTo(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_82'>6</a>
+<span>
+1. compareTo : changed conditional boundary to IFGE &rarr; SURVIVED<br/>
+2. compareTo : changed conditional boundary to IFGT &rarr; SURVIVED<br/>
+3. compareTo : negated conditional &rarr; KILLED<br/>
+4. compareTo : changed conditional boundary to IFEQ &rarr; KILLED<br/>
+5. compareTo : changed conditional boundary to IFLE &rarr; KILLED<br/>
+6. compareTo : changed conditional boundary to IFLT &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (!(o instanceof Intervalable)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_83'/>
+83
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_83'>6</a>
+<span>
+1. compareTo : Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE<br/>
+2. compareTo : Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE<br/>
+3. compareTo : Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE<br/>
+4. compareTo : Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; NO_COVERAGE<br/>
+5. compareTo : Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE<br/>
+6. compareTo : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_85'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Intervalable other = (Intervalable) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_86'>2</a>
+<span>
+1. compareTo : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED<br/>
+2. compareTo : Replaced operate with second operand &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        int comparison = this.start - other.getStart();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_87'>9</a>
+<span>
+1. compareTo : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED<br/>
+2. compareTo : Replaced operate with second operand &rarr; KILLED<br/>
+3. compareTo : negated conditional &rarr; KILLED<br/>
+4. compareTo : changed conditional boundary to IFGE &rarr; KILLED<br/>
+5. compareTo : changed conditional boundary to IFGT &rarr; KILLED<br/>
+6. compareTo : changed conditional boundary to IFLE &rarr; KILLED<br/>
+7. compareTo : changed conditional boundary to IFLT &rarr; KILLED<br/>
+8. compareTo : changed conditional boundary to IFNE &rarr; KILLED<br/>
+9. compareTo : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return comparison != 0 ? comparison : this.end - other.getEnd();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the starting offset and ending offset separated</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * by a full colon (:).</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A non-null String, never empty.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_98'/>
+98
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_98'>3</a>
+<span>
+1. toString : M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; NO_COVERAGE<br/>
+2. toString : M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; NO_COVERAGE<br/>
+3. toString : mutated return of Object value for org/ahocorasick/interval/Interval::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return this.start + &#34;:&#34; + this.end;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_15'>15</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_15'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_16'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_26'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getStart<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getStart<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_36'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getEnd<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getEnd<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.construct(org.ahocorasick.interval.IntervalTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>size<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>size<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>size<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_57'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPEQ &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointDoesNotOverlap(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPEQ &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGE &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IF_ICMPNE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>overlapsWith<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGE &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_68'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IF_ICMPEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IF_ICMPGE &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPGT &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTreeTest.findOverlaps(org.ahocorasick.interval.IntervalTreeTest)</span></span> Bug fixed: CRCR replace with One, Substituted 1 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTreeTest.findOverlaps(org.ahocorasick.interval.IntervalTreeTest)</span></span> Bug fixed: CRCR replace with One, Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IF_ICMPEQ &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest)</span></span> changed conditional boundary to IF_ICMPGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.TrieTest.startOfChurchillSpeech(org.ahocorasick.trie.TrieTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>org.ahocorasick.trie.TrieTest.startOfChurchillSpeech(org.ahocorasick.trie.TrieTest)</span></span> changed conditional boundary to IF_ICMPGT &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IF_ICMPLT &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_77'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOD: Replaced integer remainder with first operand &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOD: Replaced integer remainder with first operand &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOR: Replaced integer modulus with addition &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOR: Replaced integer modulus with addition &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOR: Replaced integer modulus with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOR: Replaced integer modulus with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOR: Replaced integer modulus with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> AOR: Replaced integer modulus with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 100 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted 100 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced operate with second operand &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced integer modulus with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Replaced integer modulus with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>hashCode<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFEQ &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGE &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> changed conditional boundary to IFGT &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_83'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR Add One, Substituted 1 with 2 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR sub One, Substituted 2 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with Zero, Substituted -1 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> Bug fixed: CRCR replace with One, Substituted -1 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> Bug fixed: Negate variable, Substituted 1 with -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> Replaced operate with second operand &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFGE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFGT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFLE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFLT &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> changed conditional boundary to IFNE &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>compareTo<br/><b>Killed by : </b>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@6b5c4b75_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@6b5c4b75_98'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldstart mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> M1: field dereference on object org/ahocorasick/interval/Interval and fieldend mutated with null check on object &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/ahocorasick/interval/Interval::toString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_MUL_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ACMP</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGE</li>
+<li class='mutator'>ROR_MUTATOR_IFGE</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_SUB_ONE</li>
+<li class='mutator'>UOI Mutator - INCREMENT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPNE</li>
+<li class='mutator'>UOI Mutator - REMOVE</li>
+<li class='mutator'>ROR_MUTATOR_IFNE</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLE</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_SUB_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLE</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_REM_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFGT</li>
+<li class='mutator'>ROR_MUTATOR_IFEQ</li>
+<li class='mutator'>ROR_MUTATOR_ICMPGT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ADD_ONE</li>
+<li class='mutator'>ROR_MUTATOR_ICMPEQ</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_ADD_MUTATOR</li>
+<li class='mutator'>REPLACE_ARITHMETIC_WITH_DIV_MUTATOR</li>
+<li class='mutator'>ROR_MUTATOR_IFLT</li>
+<li class='mutator'>ROR_MUTATOR_ICMPLT</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>NEGATE_VARIABLE_MUTATOR</li>
+<li class='mutator'>AOD_FIRST_OPERAND_MUTATOR</li>
+<li class='mutator'>UOI Mutator - DECREMENT</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ZERO</li>
+<li class='mutator'>UOI Mutator - REVERSE</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>M1_NULL_POINTER_FIXING_MUTATOR</li>
+<li class='mutator'>CRCR_VARIABLE_MUTATOR_TO_ONE</li>
+<li class='mutator'>AOD_SECOND_OPERAND_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.ahocorasick.trie.TrieTest.partialMatch(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.testIgnoreCase(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestStopOnHitSkipOne(org.ahocorasick.trie.TrieTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.longAndShortOverlappingMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.containsMatch(org.ahocorasick.trie.TrieTest) (7 ms)</li><li>org.ahocorasick.interval.IntervalableComparatorBySizeTest.sortOnSizeThenPosition(org.ahocorasick.interval.IntervalableComparatorBySizeTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.testLargeString(org.ahocorasick.trie.TrieTest) (664 ms)</li><li>org.ahocorasick.trie.TrieTest.testPartialMatchWhiteSpaces(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.startOfChurchillSpeech(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.tokenizeTokensInSequence(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.nonOverlapping(org.ahocorasick.trie.TrieTest) (11 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.recipes(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.nonOverlappingFirstMatch(org.ahocorasick.trie.TrieTest) (5 ms)</li><li>org.ahocorasick.trie.TrieTest.partialMatchFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.variousKeywordsFirstMatch(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.testUnicode2(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestByCallback(org.ahocorasick.trie.TrieTest) (11 ms)</li><li>org.ahocorasick.trie.EmitTest.equals(org.ahocorasick.trie.EmitTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.textIsLongerThanKeyword(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.EmitTest.notEquals(org.ahocorasick.trie.EmitTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.keywordAndTextAreTheSameFirstMatch(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.interval.IntervalTreeTest.findOverlaps(org.ahocorasick.interval.IntervalTreeTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTest(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.recipesFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTest.construct(org.ahocorasick.interval.IntervalTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestWithCapitalKeywords(org.ahocorasick.trie.TrieTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.testUnicode1(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.interval.IntervalableComparatorBySizeTest.sortOnSize(org.ahocorasick.interval.IntervalableComparatorBySizeTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTest.comparable(org.ahocorasick.interval.IntervalTest) (13 ms)</li><li>org.ahocorasick.interval.IntervalableComparatorByPositionTest.sortOnPosition(org.ahocorasick.interval.IntervalableComparatorByPositionTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTest.pointOverlaps(org.ahocorasick.interval.IntervalTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.tokenizeFullSentence(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.misleadingTest(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.trie.TrieTest.testStringIndexOutOfBoundsException(org.ahocorasick.trie.TrieTest) (3 ms)</li><li>org.ahocorasick.trie.TrieTest.keywordAndTextAreTheSame(org.ahocorasick.trie.TrieTest) (2 ms)</li><li>org.ahocorasick.interval.IntervalTest.pointDoesNotOverlap(org.ahocorasick.interval.IntervalTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.textIsLongerThanKeywordFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTest.intervaloverlaps(org.ahocorasick.interval.IntervalTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.ushersTestAndStopOnHit(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTest.size(org.ahocorasick.interval.IntervalTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTreeTest.removeOverlaps(org.ahocorasick.interval.IntervalTreeTest) (1 ms)</li><li>org.ahocorasick.interval.IntervalTest.intervalDoesNotOverlap(org.ahocorasick.interval.IntervalTest) (0 ms)</li><li>org.ahocorasick.trie.TrieTest.misleadingTestFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.variousKeywordsOneMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li><li>org.ahocorasick.trie.TrieTest.testIgnoreCaseFirstMatch(org.ahocorasick.trie.TrieTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 3.3.3
+
+</body>
+</html>

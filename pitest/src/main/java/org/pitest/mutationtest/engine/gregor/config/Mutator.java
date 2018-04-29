@@ -14,43 +14,72 @@
  */
 package org.pitest.mutationtest.engine.gregor.config;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.function.Function;
-
 import org.pitest.functional.FCollection;
 import org.pitest.functional.prelude.Prelude;
 import org.pitest.help.Help;
 import org.pitest.help.PitHelpError;
 import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
-import org.pitest.mutationtest.engine.gregor.mutators.*;
+
 import org.pitest.mutationtest.engine.gregor.mutators.AOD.FirstOperandMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.AOD.SecondOperandMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.AOR.*;
-import org.pitest.mutationtest.engine.gregor.mutators.ROR.IntegersComparisonMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.ROR.ReferentialComparisonMutator;
-import org.pitest.mutationtest.engine.gregor.mutators.ROR.ZeroComparisonMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithAddMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithDivMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithMulMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithRemMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.AOR.ReplaceArithmeticWithSubMutator;
+
+import org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.CRCRMutateConstantToAddOne;
+import org.pitest.mutationtest.engine.gregor.mutators.CRCRMutateConstantToSubOne;
+import org.pitest.mutationtest.engine.gregor.mutators.CRCRMutateConstantWith0;
+import org.pitest.mutationtest.engine.gregor.mutators.CRCRMutateConstantWith1;
+import org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.MathMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.NegateVariableMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.NullPointerFixingMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorACMP;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorICMPEQ;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorICMPGE;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorICMPGT;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorICMPLE;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorICMPLT;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorICMPNE;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorIFEQ;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorIFGE;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorIFGT;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorIFLE;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorIFLT;
+import org.pitest.mutationtest.engine.gregor.mutators.ROR.RORMutatorIFNE;
+import org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator.Choice;
+import org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.UOIMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator;
+
+import java.util.*;
+import java.util.function.Function;
+
 
 public final class Mutator {
 
   private static final Map<String, Iterable<MethodMutatorFactory>> MUTATORS = new LinkedHashMap<>();
 
   static {
-
-
     /**
      * Mutators that replace arithmetic expression with operands
      */
@@ -66,12 +95,33 @@ public final class Mutator {
     add("REPLACE_ARITHMETIC_WITH_SUB_MUTATOR", ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR);
     add("REPLACE_ARITHMETIC_WITH_REM_MUTATOR", ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR);
 
-    /**
-     * Mutators that replace the relational operators with each other
-     */
-    add("INTEGERS_COMPARISON_MUTATOR", IntegersComparisonMutator.INTEGERS_COMPARISON_MUTATOR);
-    add("REFERENTIAL_COMPARISON_MUTATOR", ReferentialComparisonMutator.REFERENTIAL_COMPARISON_MUTATOR);
-    add("ZERO_COMPARISON_MUTATOR", ZeroComparisonMutator.ZERO_COMPARISON_MUTATOR);
+    add("CRCR_VARIABLE_MUTATOR_TO_ADD_ONE", new CRCRMutateConstantToAddOne());
+    add("CRCR_VARIABLE_MUTATOR_TO_SUB_ONE", new CRCRMutateConstantToSubOne());
+    add("CRCR_VARIABLE_MUTATOR_TO_ZERO", new CRCRMutateConstantWith0());
+    add("CRC_VARIABLE_MUTATOR_TO_ONE", new CRCRMutateConstantWith1());
+    add("NEGATE_VARIABLE_MUTATOR", new NegateVariableMutator());
+    add("ROR_MUTATOR_ACMP", RORMutatorACMP.ROR_MUTATOR_ACMP);
+    add("ROR_MUTATOR_ICMPEQ", RORMutatorICMPEQ.ROR_MUTATOR_ICMPEQ);
+    add("ROR_MUTATOR_ICMPGE", RORMutatorICMPGE.ROR_MUTATOR_ICMPGE);
+    add("ROR_MUTATOR_ICMPGT", RORMutatorICMPGT.ROR_MUTATOR_ICMPGT);
+    add("ROR_MUTATOR_ICMPLE", RORMutatorICMPLE.ROR_MUTATOR_ICMPLE);
+    add("ROR_MUTATOR_ICMPLT", RORMutatorICMPLT.ROR_MUTATOR_ICMPLT);
+    add("ROR_MUTATOR_ICMPNE", RORMutatorICMPNE.ROR_MUTATOR_ICMPNE);
+    add("ROR_MUTATOR_IFEQ", RORMutatorIFEQ.ROR_MUTATOR_IFEQ);
+    add("ROR_MUTATOR_IFGE", RORMutatorIFGE.ROR_MUTATOR_IFGE);
+    add("ROR_MUTATOR_IFGT", RORMutatorIFGT.ROR_MUTATOR_IFGT);
+    add("ROR_MUTATOR_IFLE", RORMutatorIFLE.ROR_MUTATOR_IFLE);
+    add("ROR_MUTATOR_IFLT", RORMutatorIFLT.ROR_MUTATOR_IFLT);
+    add("ROR_MUTATOR_IFNE", RORMutatorIFNE.ROR_MUTATOR_IFNE);
+
+
+    add("UOI_REVERSE", new UOIMutator(UOIMutator.MutantType.REVERSE));
+    add("UOI_REMOVE", new UOIMutator(UOIMutator.MutantType.REMOVE));
+    add("UOI_INCREMENT", new UOIMutator(UOIMutator.MutantType.INCREMENT));
+    add("UOI_DECREMENT", new UOIMutator(UOIMutator.MutantType.DECREMENT));
+
+    add("M1_NULL_POINTER_FIXING_MUTATOR", new NullPointerFixingMutator());
+
 
     /**
      * Default mutator that inverts the negation of integer and floating point
@@ -189,6 +239,7 @@ public final class Mutator {
     addGroup("STRONGER", stronger());
     addGroup("ALL", all());
     addGroup("NEW_DEFAULTS", newDefaults());
+    addGroup("UOI", uoi());
   }
 
   public static Collection<MethodMutatorFactory> all() {
@@ -214,22 +265,42 @@ public final class Mutator {
    * performance
    */
   public static Collection<MethodMutatorFactory> defaults() {
-    return group(ReplaceArithmeticWithAddMutator.REPLACE_ARITHMETIC_WITH_ADD_MUTATOR,
-        ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR,
-        ReplaceArithmeticWithMulMutator.REPLACE_ARITHMETIC_WITH_MUL_MUTATOR,
-        ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR,
-        ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR,
-        new SecondOperandMutator(),
-        new FirstOperandMutator(),
-        IntegersComparisonMutator.INTEGERS_COMPARISON_MUTATOR,
-        ReferentialComparisonMutator.REFERENTIAL_COMPARISON_MUTATOR,
-        ZeroComparisonMutator.ZERO_COMPARISON_MUTATOR,
-        InvertNegsMutator.INVERT_NEGS_MUTATOR,
-        ReturnValsMutator.RETURN_VALS_MUTATOR, MathMutator.MATH_MUTATOR,
-        VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
-        NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
-        ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
-        IncrementsMutator.INCREMENTS_MUTATOR);
+    return group(InvertNegsMutator.INVERT_NEGS_MUTATOR,
+            ReturnValsMutator.RETURN_VALS_MUTATOR, MathMutator.MATH_MUTATOR,
+            VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
+            NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
+            ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
+            IncrementsMutator.INCREMENTS_MUTATOR,
+            ReplaceArithmeticWithAddMutator.REPLACE_ARITHMETIC_WITH_ADD_MUTATOR,
+            ReplaceArithmeticWithDivMutator.REPLACE_ARITHMETIC_WITH_DIV_MUTATOR,
+            ReplaceArithmeticWithMulMutator.REPLACE_ARITHMETIC_WITH_MUL_MUTATOR,
+            ReplaceArithmeticWithSubMutator.REPLACE_ARITHMETIC_WITH_SUB_MUTATOR,
+            ReplaceArithmeticWithRemMutator.REPLACE_ARITHMETIC_WITH_REM_MUTATOR,
+            new SecondOperandMutator(),
+            new FirstOperandMutator(),
+            new CRCRMutateConstantToAddOne(),
+            new CRCRMutateConstantToSubOne(),
+            new CRCRMutateConstantWith0(),
+            new CRCRMutateConstantWith1(),
+            new NegateVariableMutator(),
+            new NullPointerFixingMutator(),
+            RORMutatorACMP.ROR_MUTATOR_ACMP,
+            RORMutatorICMPEQ.ROR_MUTATOR_ICMPEQ,
+            RORMutatorICMPGE.ROR_MUTATOR_ICMPGE,
+            RORMutatorICMPGT.ROR_MUTATOR_ICMPGT,
+            RORMutatorICMPLE.ROR_MUTATOR_ICMPLE,
+            RORMutatorICMPLT.ROR_MUTATOR_ICMPLT,
+            RORMutatorICMPNE.ROR_MUTATOR_ICMPNE,
+            RORMutatorIFEQ.ROR_MUTATOR_IFEQ,
+            RORMutatorIFGE.ROR_MUTATOR_IFGE,
+            RORMutatorIFGT.ROR_MUTATOR_IFGT,
+            RORMutatorIFLE.ROR_MUTATOR_IFLE,
+            RORMutatorIFLT.ROR_MUTATOR_IFLT,
+            RORMutatorIFNE.ROR_MUTATOR_IFNE,
+            new UOIMutator(UOIMutator.MutantType.REVERSE),
+            new UOIMutator(UOIMutator.MutantType.REMOVE),
+            new UOIMutator(UOIMutator.MutantType.INCREMENT),
+            new UOIMutator(UOIMutator.MutantType.DECREMENT));
   }
 
   /**
@@ -244,6 +315,12 @@ public final class Mutator {
         IncrementsMutator.INCREMENTS_MUTATOR), betterReturns());
   }
 
+  public static Collection<MethodMutatorFactory> uoi() {
+    return group(new UOIMutator(UOIMutator.MutantType.REVERSE),
+            new UOIMutator(UOIMutator.MutantType.REMOVE),
+            new UOIMutator(UOIMutator.MutantType.INCREMENT),
+            new UOIMutator(UOIMutator.MutantType.DECREMENT));
+  }
 
   public static Collection<MethodMutatorFactory> betterReturns() {
     return group(BooleanTrueReturnValsMutator.BOOLEAN_TRUE_RETURN,
@@ -294,5 +371,9 @@ public final class Mutator {
       return i;
     };
   }
+ /** private static Collection<MethodMutatorFactory> custom() {
+    return combine(MethodNameMutator.makeMutators(),
+            combine(group(new NullPointerFixingMutator()),MethodOverloadingMutator.makeMutators()));
+  }**/
 
 }
